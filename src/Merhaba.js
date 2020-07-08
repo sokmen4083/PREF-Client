@@ -7,7 +7,7 @@ export class Merhaba extends Component {
 
     return (
       <div>
-        <h1>Merhaba</h1>
+        <h1>REGISTRATION FORM</h1>
         <p>Herkese kapali ama sana acik sayfamiza hosgeldin.</p>
       </div>
     );

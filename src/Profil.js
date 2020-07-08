@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class Merhaba extends Component {
+export class Profil extends Component {
   render() {
 
     console.log(this.props);
@@ -8,7 +8,7 @@ export class Merhaba extends Component {
     return (
       <div>
         <h1>REGISTRATION FORM</h1>
-        <p>Herkese kapali ama sana acik sayfamiza hosgeldin.</p>
+        <p>Welcome.</p>
       </div>
     );
   }

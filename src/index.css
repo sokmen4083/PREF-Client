@@ -5,9 +5,35 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  font-size: 25px;
+  background-image: url(resim.jpg);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#registration{
+  width: 600px;
+    height: 400px;
+    padding: 20px;
+    background-color: skyblue;
+    position: relative;
+    margin: auto;
+}
+input{
+  font-size: 20px;
+}
+#submit{
+  position: absolute;
+  right: 150px;
+  background-color:#b0e0e6;
+  width: 100px;
+  height: 35px;
+}
+#welcome{
+  color:yellow;
+  background-color: red;
 }

@@ -7,22 +7,15 @@ export class Form extends Component {
 
     return (
       <div>
+                <p><h1 id="welcome">WELCOME to PREF</h1></p>
+                <div id="registration">
         <h1>REGISTRATION FORM</h1>
-        <p>Welcome.</p>
-        <p>NAME</p>
-        <input type="text" placeholder="please enter your name"></input>
-        <p>SURNAME</p>
-        <input type="text" placeholder="please enter your Ssurname"></input>
-        <p>EMAIL</p>
-        <input type="email" placeholder="please enter your Email"></input>
-        <p>BIRTHDAY</p>
-        <input type="date"></input>  
-        <p><input type="button" value="SUBMIT" id="submit" onclick="nextPage()"></input></p> 
-        <h1>YOUR PROFILE</h1>
-    <p>Your Name :<p id="your-name"></p></p>
-    <p>Your Surname :<p id="your-name"></p></p>
-    <p>Your Mail :<p id="your-name"></p></p>
-    <p>Your Birthday :<p id="your-name"></p></p>    
+        <p>NAME : <input type="text" placeholder="please enter your name"></input></p>
+        <p>SURNAME : <input type="text" placeholder="please enter your surname"></input></p>
+        <p>EMAIL : <input type="email" placeholder="please enter your Email"></input></p>
+        <p>BIRTHDAY : <input type="date"></input> </p>
+         <p><input type="button" value="SUBMIT" id="submit" onclick="nextPage()"></input></p> 
+        </div>  
       </div>
       
     );

@@ -71,3 +71,18 @@ input{
 #family-union input{ 
   width: 400px;
 }
+#dashboard{
+  width: 900px;
+  height: 600px;
+  padding: 20px;
+  background-color:yellow;
+  position: relative;
+  margin: auto;
+  display: flex;
+  
+}
+#home,#about,#contact{
+  border-style: groove;
+  border-width: 15px;
+   font-size: 30px;
+}

@@ -20,7 +20,7 @@ function App() {
         <Route path='/callback' component={LoginCallback}/>
         <Route path='/profil' component={Profil}/>
         <Route path='/file' component={File}/>
-        <Route path='/dasboard' component={Dashboard}/>
+        <Route path='/dashboard' component={Dashboard}/>
         <Route path='/FamilyUnion' component={Family}/>
       </Security>
     </Router>

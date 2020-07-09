@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class Document extends Component {
+export class File extends Component {
   render() {
 
     console.log(this.props);
@@ -8,7 +8,7 @@ export class Document extends Component {
     return (
         <div id="files">
             <div id="official"> 
-        <p>Official Documents</p>
+        <p id="official-document">Official Documents</p>
         <ul>
             <li id="family">Family Union</li>
             <li id="file">File Combination</li>
@@ -17,14 +17,14 @@ export class Document extends Component {
         </ul>
         {this.props.children}
         </div>
-        <div id="course">
-            Course Opportunities
+        <div >
+            <p id="course"> Course Opportunities</p>
         </div>
-        <div id="job">
-            Job Opportunities
+        <div>
+            <p id="job">Job Opportunities</p>
         </div>
-        <div id="social">
-            Social Life
+        <div>
+            <p id="social">Social Life</p>
         </div>
     </div>
       

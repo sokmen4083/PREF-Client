@@ -4,6 +4,9 @@ import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { LoginCallback, SecureRoute, Security } from '@okta/okta-react';
 import { Profil } from './Profil';
+import { Dashboard } from './Dashboard';
+import { File } from './File';
+import { Family } from './FamilyUnion';
 
 
 function App() {
@@ -16,7 +19,9 @@ function App() {
         <SecureRoute path='/' exact={true} component={Form}/>
         <Route path='/callback' component={LoginCallback}/>
         <Route path='/profil' component={Profil}/>
-        <Route path='/document' component={Document}/>
+        <Route path='/file' component={File}/>
+        <Route path='/dasboard' component={Dashboard}/>
+        <Route path='/FamilyUnion' component={Family}/>
       </Security>
     </Router>
   );

@@ -37,3 +37,37 @@ input{
   color:yellow;
   background-color: red;
 }
+#profile{
+    width: 600px;
+    height: 500px;
+    padding: 20px;
+    background-color: yellowgreen;
+    position: relative;
+    margin: auto;
+}
+#files{
+    width: 900px;
+    height: 600px;
+    padding: 20px;
+    background-color:yellow;
+    position: relative;
+    margin: auto;
+    display: flex;
+}
+
+#official-document,#course,#job,#social{
+  border-style: groove;
+  border-width: 15px;
+  background-color:green;
+}
+#family-union{
+  width: 900px;
+  height: 600px;
+  padding: 20px;
+  background-color:yellow;
+  position: relative;
+  margin: auto;
+}
+#family-union input{ 
+  width: 400px;
+}

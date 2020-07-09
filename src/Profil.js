@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 export class Profil extends Component {
   render() {
-
     console.log(this.props);
 
     return (

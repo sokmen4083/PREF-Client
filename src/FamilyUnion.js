@@ -20,6 +20,9 @@ export class Family extends Component {
         <p>YOUR THIRD CHILD'S NAME : <input type="text" placeholder="please enter your third child's name"></input></p>
         <p>YOUR THIRD CHILD'S BIRTHDAY : <input type="DATE" placeholder="please enter your third child's birthday"></input></p>
         </div>
+        <div>
+        <input type="button" value="SUBMIT" id="submit"></input>
+        </div>
     </div>
       
     );

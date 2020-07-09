@@ -1,25 +1,48 @@
-import React, { Component } from 'react';
-
- class Dosya extends React.Component {
+class Dashboard extends React.Component {
   render() {
-    return (
-      <div>
-        {this.props.dosyaIsmi}
-      </div>
-    );
+     return (
+        <div>
+           <ul>
+           <li>Home</li>
+           <li>About</li>
+           <li>Contact</li>
+           </ul>
+           {this.props.children}
+        </div>
+     )
   }
 }
+export default Dashboard;
 
-class DosyaListesi extends React.Component {
-  
-    render() {
-const dosyalar = 
-this.state.dosyalar.map(d => <Dosya dosyaIsmi={d.ismi}/>)
-
-      return (
+class Home extends React.Component {
+  render() {
+     return (
         <div>
-          {dosyalar}
+           <h1>Home...</h1>
         </div>
-      );
-    }
+     )
   }
+}
+export default Home;
+
+class About extends React.Component {
+  render() {
+     return (
+        <div>
+           <h1>About...</h1>
+        </div>
+     )
+  }
+}
+export default About;
+
+class Contact extends React.Component {
+  render() {
+     return (
+        <div>
+           <h1>Contact...</h1>
+        </div>
+     )
+  }
+}
+export default Contact;

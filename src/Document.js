@@ -15,6 +15,7 @@ export class Document extends Component {
             <li id ="canton">Canton Change</li>
             <li id="camp">Camp Change</li>
         </ul>
+        {this.props.children}
         </div>
         <div id="course">
             Course Opportunities

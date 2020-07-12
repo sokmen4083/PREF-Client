@@ -2,8 +2,17 @@ import React, { Component } from 'react';
 
 export class Profil extends Component {
   render() {
-    console.log(this.props);
-
+    fetch('http://localhost:3000/Form').then(
+            function(response){
+                return response.json();
+            }
+            ).then(function(jsonData){
+                return JSON.stringify(jsonData);
+            }
+            ).then(function(){
+                this.setState();
+                console.log();
+            });
     return (
         <div id="profile">
         <h1>YOUR PROFILE</h1>

@@ -12,9 +12,11 @@ export class Profil extends Component {
             ).then(function(){
                 this.setState();
                 console.log();
+                
             });
     return (
         <div id="profile">
+          
         <h1>YOUR PROFILE</h1>
         Your Name :<p id="your-name"></p>
         Your Surname :<p id="your-surname"> </p>

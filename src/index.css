@@ -17,18 +17,18 @@ code {
 
 #registration{
   width: 600px;
-    height: 400px;
+    height: 600px;
     padding: 20px;
     background-color: skyblue;
     position: relative;
     margin: auto;
 }
-input{
+input,select{
   font-size: 20px;
 }
 #submit{
   position: absolute;
-  right: 150px;
+  right: 5px;
   background-color:#b0e0e6;
   width: 100px;
   height: 35px;

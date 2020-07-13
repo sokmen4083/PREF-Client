@@ -23,6 +23,7 @@ export class Profil extends Component {
         Your Password : <p id="your-password"></p>
         Your Birthday : <p id="your-birthday"></p>
         Your Documents : <p id="your-birthday"></p>
+        <p id="edit">EDIT</p>
     </div>
       
     );

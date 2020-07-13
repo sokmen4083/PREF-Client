@@ -7,6 +7,7 @@ import { Profil } from './Profil';
 import { Dashboard } from './Dashboard';
 import { File } from './File';
 import { Family } from './FamilyUnion';
+import { FamilyPdf } from './Family-Pdf';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path='/file' component={File}/>
         <Route path='/dashboard' component={Dashboard}/>
         <Route path='/FamilyUnion' component={Family}/>
+        <Route path='/Family-Pdf' component={FamilyPdf}/>
       </Security>
     </Router>
   );

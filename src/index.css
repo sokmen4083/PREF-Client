@@ -38,8 +38,8 @@ input{
   background-color: red;
 }
 #profile{
-    width: 600px;
-    height: 500px;
+    width: 800px;
+    height: 600px;
     padding: 20px;
     background-color: yellowgreen;
     position: relative;
@@ -68,6 +68,16 @@ input{
   position: relative;
   margin: auto;
 }
+#family-pdf{
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-color:yellow;
+  position: relative;
+  margin: auto;
+
+  
+}
 #family-union input{ 
   width: 400px;
 }
@@ -85,4 +95,8 @@ input{
   border-style: groove;
   border-width: 15px;
    font-size: 30px;
+}
+#edit{
+  position: absolute;
+  right: 150px;
 }

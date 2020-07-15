@@ -38,13 +38,14 @@ Jedoch ist meine Familie noch in der <span id="user-country">.........</span> un
 <p><span id="user-countryAdress">...................................................</span></p>
 
 <p>Ich ersuche Sie deshalb, die Einreise meiner Familienangehörigen in die Schweiz im Sinne des Art. 51 Asyl zu genehmigen. Folgende Unterlagen lege ich diesem Brief bei :</p> 
-<p><ul>
+
+  <ul>
     <li>Auszug aus dem Personenstandsregister</li>
     <li>Aufenthaltsbescheinigung</li>
     <li>Kopie des Familienbuches</li>
     <li>Kopien der Identitätskarten</li>
     <li>Kopien der Reisepässe</li>
-    </ul></p>   
+    </ul>  
     </div>
       
     );

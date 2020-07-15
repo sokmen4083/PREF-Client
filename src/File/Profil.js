@@ -7,7 +7,19 @@ export class Profil extends Component {
 	  }
 
   goToYourDocuments(){
-    return window.location.href = "/file"
+    //return window.location.href = "/file"
+    let profilData = {"name" : "Mehmet"}
+	  fetch('http://localhost:5501/myFiles/profile',{
+		headers: {
+			"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+		  },
+		method: 'post',
+		body: JSON.stringify(profilData)
+	  }).then(function(response) {
+		return response.json();
+	  }).then(function(data) {
+		return window.location.href = "/file" 
+	}); 
 }
 
   render() {

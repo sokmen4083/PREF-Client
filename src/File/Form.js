@@ -10,9 +10,9 @@ export class Form extends Component {
 
 	console.log("test")
 	  // fetch post
-	  return window.location.href = "/profil"
-	  /*let profilData = {"name" : "Mehmet"}
-	  fetch('http://localhost:5501/users/profile',{
+	  //return window.location.href = "/profil"
+	  let profilData = {"name" : "Mehmet"}
+	  fetch('http://localhost:5501/myFiles/profile',{
 		headers: {
 			"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
 		  },
@@ -22,7 +22,7 @@ export class Form extends Component {
 		return response.json();
 	  }).then(function(data) {
 		return window.location.href = "/Profil" 
-	}); */
+	}); 
   }
 
   render() {

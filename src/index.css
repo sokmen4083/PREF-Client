@@ -55,10 +55,15 @@ input,select{
     display: flex;
 }
 
-#official-document,#course,#job,#social{
+#document,#course,#job,#social{
+  border-style: groove;
+  border-width: 20px;
+  background-color:green;
+}
+#family,#file,#canton-change,#camp-change{
   border-style: groove;
   border-width: 15px;
-  background-color:green;
+  background-color:brown;
 }
 #family-union{
   width: 900px;
@@ -99,4 +104,13 @@ input,select{
 #edit{
   position: absolute;
   right: 150px;
+}
+#official{
+  width: 700px;
+  height: 400px;
+  padding: 20px;
+  background-color:yellow;
+  position: relative;
+  margin: auto;
+  text-align: center;
 }

@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
 
 export class Profil extends Component {
+  constructor(props) {
+		super(props);
+		this.goToYourDocuments = this.goToYourDocuments.bind(this);
+	  }
+
+  goToYourDocuments(){
+    return window.location.href = "/file"
+}
+
   render() {
-    fetch('http://localhost:3000/Form').then(
-            function(response){
-                return response.json();
-            }
-            ).then(function(jsonData){
-                return JSON.stringify(jsonData);
-            }
-            ).then(function(){
-                this.setState();
-                console.log();
-                
-            });
     return (
         <div id="profile">
           
@@ -24,10 +21,11 @@ export class Profil extends Component {
         Your Country : <p id="your-country"></p>
         Your Password : <p id="your-password"></p>
         Your Birthday : <p id="your-birthday"></p>
-        Your Documents : <p id="your-birthday"></p>
         <p id="edit">EDIT</p>
+        <p><input type="button" value="Go to YOUR DOCUMENTS" id="document" onClick={this.goToYourDocuments}/></p>
     </div>
       
     );
   }
 }
+

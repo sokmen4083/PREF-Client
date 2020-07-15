@@ -1,13 +1,13 @@
 import React from 'react';
-import { Form } from './Form';
+import { Form } from './File/Form';
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { LoginCallback, SecureRoute, Security } from '@okta/okta-react';
-import { Profil } from './Profil';
-import { File } from './File';
-import { Family } from './FamilyUnion';
-import { FamilyPdf } from './Family-Pdf';
-import { Official } from './OfficialDocument';
+import { Profil } from './File/Profil';
+import { File } from './File/File';
+import { Family } from './File/FamilyUnion';
+import { FamilyPdf } from './File/Family-Pdf';
+import { Official } from './File/OfficialDocument';
 
 
 function App() {

@@ -27,8 +27,9 @@ export class Form extends Component {
 	
   }
   translate(){
-    axios.post('http://localhost:5501/myFiles/translate',{q:this.state.value})
-    .then(data => {
+    fetch('http://localhost:5501/translate',
+    { method: 'post',
+    }).then(data => {
       this.setState({translated: data.data.data.translations[0].translatedText})
       console.log(data.data.data.translations[0].translatedText)
     }).catch(err => {

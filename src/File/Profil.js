@@ -4,6 +4,7 @@ export class Profil extends Component {
   constructor(props) {
 		super(props);
 		this.goToYourDocuments = this.goToYourDocuments.bind(this);
+		this.edit = this.edit.bind(this);
 	  }
 
   goToYourDocuments(){
@@ -21,6 +22,21 @@ export class Profil extends Component {
 		return window.location.href = "/file" 
 	}); 
 }
+edit(){
+  //return window.location.href = "/file"
+  let profilData = {"name" : "Mehmet"}
+  fetch('http://localhost:5501/myFiles/profile',{
+  headers: {
+    "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+    },
+  method: 'post',
+  body: JSON.stringify(profilData)
+  }).then(function(response) {
+  return response.json();
+  }).then(function(data) {
+  return window.location.href = "/" 
+}); 
+}
 
   render() {
     return (
@@ -33,7 +49,7 @@ export class Profil extends Component {
         Your Country : <p id="your-country"></p>
         Your Password : <p id="your-password"></p>
         Your Birthday : <p id="your-birthday"></p>
-        <p id="edit">EDIT</p>
+        <p><input type="button" value="EDIT" id="edit" onClick={this.edit}/></p>
         <p><input type="button" value="Go to YOUR DOCUMENTS" id="document" onClick={this.goToYourDocuments}/></p>
     </div>
       

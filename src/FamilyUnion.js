@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 
 export class Family extends Component {
+  constructor(props) {
+		super(props);
+		this.goToFamilyPdf = this.goToFamilyPdf.bind(this);
+	  }
+
+  goToFamilyPdf(){
+      return window.location.href = "/Family-Pdf"
+}
   render() {
 
     console.log(this.props);
@@ -21,7 +29,7 @@ export class Family extends Component {
         <p>YOUR THIRD CHILD'S BIRTHDAY : <input type="DATE" placeholder="please enter your third child's birthday"></input></p>
         </div>
         <div>
-        <input type="button" value="SUBMIT" id="submit"></input>
+        <input type="button" value="SUBMIT" id="submit" onClick={this.goToFamilyPdf}/>
         </div>
     </div>
       

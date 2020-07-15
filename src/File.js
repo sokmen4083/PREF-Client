@@ -4,6 +4,7 @@ export class File extends Component {
     constructor(props) {
 		super(props);
 		this.officialDocument = this.officialDocument.bind(this);
+		
 	  }
 
   officialDocument(){
@@ -15,17 +16,22 @@ export class File extends Component {
 
     return (
         <div id="files">
-             
+            <div>
+               <p>Please click on the document you want</p>
+           </div>
+           <div>  
             <p><input type="button" value="OFFICIAL DOCUMENT" id="document" onClick={this.officialDocument}/></p>
-        <div >
-            <p id="course"> Course Opportunities</p>
+            </div>
+        <div>
+        <p><input type="button" value="COURSE OPPORTUNITIES" id="course"/></p>
         </div>
         <div>
-            <p id="job">Job Opportunities</p>
+        <p><input type="button" value="JOB OPPORTUNITIES" id="course"/></p>
         </div>
         <div>
-            <p id="social">Social Life</p>
+        <p><input type="button" value="SOCIAL LIFE" id="course"/></p>
         </div>
+        
     </div>
       
     );

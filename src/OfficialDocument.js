@@ -7,7 +7,7 @@ export class Official extends Component{
 	  }
 
   familyUnion(){
-      return window.location.href = "/Family-Pdf"
+      return window.location.href = "/FamilyUnion"
 }
   render() {
      return (

@@ -4,6 +4,7 @@ export class Form extends Component {
 	constructor(props) {
 		super(props);
 		this.sendProfileInfo = this.sendProfileInfo.bind(this);
+		this.translate = this.translate.bind(this);
 	  }
 
   sendProfileInfo(){
@@ -23,10 +24,21 @@ export class Form extends Component {
 	  }).then(function(data) {
 		return window.location.href = "/Profil" 
 	}); 
+	
+  }
+  translate(){
+    axios.post('http://localhost:5501/myFiles/translate',{q:this.state.value})
+    .then(data => {
+      this.setState({translated: data.data.data.translations[0].translatedText})
+      console.log(data.data.data.translations[0].translatedText)
+    }).catch(err => {
+      console.log('error')
+    })
   }
 
   render() {
     return (
+		<div id="google_translate_element">
       <form id="registration">
            
         <h1>REGISTRATION FORM</h1>
@@ -36,8 +48,10 @@ export class Form extends Component {
         <p>BIRTHDAY : <input type="date" id="date"></input> </p>
     
          <p><input type="button" value="SUBMIT" id="submit" onClick={this.sendProfileInfo}/></p> 
-        
+		 <p><input type="button" value="TRANSLATE" id="translate" onClick={this.translate}/></p> 
+
       </form>
+	  </div>
       
     );
   }

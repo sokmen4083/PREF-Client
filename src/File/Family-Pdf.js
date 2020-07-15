@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 
 export class FamilyPdf extends Component {
+  constructor(props) {
+		super(props);
+		this.sendToPrint = this.sendToPrint.bind(this);
+	  }
+
+  sendToPrint(){
+	  return window.print();
+	  
+  }
   render() {
 
     console.log(this.props);
@@ -46,6 +55,9 @@ Jedoch ist meine Familie noch in der <span id="user-country">.........</span> un
     <li>Kopien der Identitätskarten</li>
     <li>Kopien der Reisepässe</li>
     </ul>  
+
+    <p><input type="button" value="PRINT" id="print" onClick={this.sendToPrint}/></p> 
+
     </div>
       
     );

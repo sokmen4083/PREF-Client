@@ -18,7 +18,7 @@ import { Contact } from './Dashboard/Contact';
 function App() {
   return (
     <Router>
-      <Security issuer='https://dev-516899.okta.com/oauth2/default'
+        <Security issuer='https://dev-516899.okta.com/oauth2/default'
                 clientId='0oajr54xsSO4dG5dc4x6'
                 redirectUri={window.location.origin + '/callback'}
                 pkce={true}>

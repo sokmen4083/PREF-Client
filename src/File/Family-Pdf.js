@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
 
+
+
 export class FamilyPdf extends Component {
   constructor(props) {
 		super(props);
-		this.sendToPrint = this.sendToPrint.bind(this);
+    this.sendToPrint = this.sendToPrint.bind(this);
+    this.generatePDF = this.generatePDF.bind(this);
 	  }
 
   sendToPrint(){
 	  return window.print();
 	  
   }
+  generatePDF(){
+    
+  }   
+  
   render() {
 
     console.log(this.props);
@@ -57,6 +64,10 @@ Jedoch ist meine Familie noch in der <span id="user-country">.........</span> un
     </ul>  
 
     <p><input type="button" value="PRINT" id="print" onClick={this.sendToPrint}/></p> 
+    <div>
+            <input type="button" value="Download PDF" onClick={this.generatePDF}/> 
+         
+      </div>
 
     </div>
       

@@ -56,8 +56,8 @@ edit(){
         <p>Your Surname :{this.state.user.lastName}</p>
         <p>Your Mail    :{this.state.user.email}</p>
         <p>Your Password:</p>
-        <p>Your Country :</p>
-        <p>Your Canton :</p>
+        <p>Your Country :{this.state.user.country}</p>
+        <p>Your Canton :{this.state.user.canton}</p>
         <p>Your Birthday:{this.state.user.birthday}</p>
         <p><input type="button" value="EDIT" id="edit" onClick={this.edit}/></p>
         <p><input type="button" value="Go to YOUR DOCUMENTS" id="document" onClick={this.goToYourDocuments}/></p>

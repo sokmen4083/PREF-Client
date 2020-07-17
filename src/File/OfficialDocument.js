@@ -7,19 +7,19 @@ export class Official extends Component{
 	  }
 
   familyUnion(){
-      //return window.location.href = "/FamilyUnion"
-      let profilData = {"name" : "Mehmet"}
-	  fetch('http://localhost:5501/myFiles/profile',{
-		headers: {
-			"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
-		  },
-		method: 'post',
-		body: JSON.stringify(profilData)
+    return window.location.href = "/FamilyUnion"
+     /* let profilData = this.state.user;
+	  fetch('http://localhost:5501/users/profile',{
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(profilData)
 	  }).then(function(response) {
-		return response.json();
+		  return response.json();
 	  }).then(function(data) {
-		return window.location.href = "/FamilyUnion" 
-	}); 
+		  return window.location.href = "/FamilyUnion" 
+	  }); */
 }
   render() {
      return (

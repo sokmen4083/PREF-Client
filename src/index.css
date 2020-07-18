@@ -50,8 +50,9 @@ input,select{
   height: 35px;
 }
 #welcome{
-  color:yellow;
-  background-color: red;
+  text-align: center;
+  font-size: 80px;
+  color: rgb(145, 106, 182);
 }
 #profile{
     width: 800px;

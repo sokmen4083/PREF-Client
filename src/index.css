@@ -8,7 +8,6 @@ body {
   text-align: center;
   font-size: 25px;
   background-color: rgb(211, 231, 190);
-  background-image: url(./File/logom.png);
 }
 
 code {
@@ -17,12 +16,20 @@ code {
 }
 
 #registration{
-  width: 600px;
+    width: 600px;
     height: 600px;
     padding: 20px;
-    background-color: skyblue;
+    background-color: rgb(181, 207, 218);
     position: relative;
     margin: auto;
+}
+#sign-in{
+  width: 500px;
+  height: 200px;
+  padding: 20px;
+  background-color: rgb(56, 194, 253);
+  position: relative;
+  margin: auto;
 }
 input,select{
   font-size: 20px;
@@ -94,20 +101,7 @@ input,select{
 #family-union input{ 
   width: 400px;
 }
-#dashboard{
-  width: 900px;
-  height: 600px;
-  padding: 20px;
-  position: relative;
-  margin: auto;
-  display: flex;
-  
-}
-#home,#about,#contact{
-  border-style: groove;
-  border-width: 15px;
-   font-size: 30px;
-}
+
 #edit{
   position: absolute;
   right: 150px;
@@ -121,18 +115,4 @@ input,select{
   margin: auto;
   text-align: center;
 }
-#contact-page{
-  background-color: coral;
-  width: 400px;
-  height: 250px;
-}
-#home-page,#about-page{
-  background-color:yellow;
-  width: 400px;
-  height: 250px;
-}
-#about-page{
-  background-color:orchid;
-  width: 400px;
-  height: 250px;
-}
+

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+  import React, { Component } from 'react';
 import {withOktaAuth} from '@okta/okta-react';
 
 
@@ -42,28 +42,24 @@ export default withOktaAuth(class Profil extends Component {
 	  });  
   }
 
-edit(){
-  return window.location.href = "/form"
-  
-}
+  edit(){
+    return window.location.href = "/form"
+  }
 
   render() {
     return (
         <div id="profile">
-          
-        <h1>YOUR PROFILE</h1>
-        <p>Your Name    :{this.state.user.firstName}</p>
-        <p>Your Surname :{this.state.user.lastName}</p>
-        <p>Your Mail    :{this.state.user.email}</p>
-        <p>Your Password:</p>
-        <p>Your Country :{this.state.user.country}</p>
-        <p>Your Canton :{this.state.user.canton}</p>
-        <p>Your Birthday:{this.state.user.birthday}</p>
-        <p><input type="button" value="EDIT" id="edit" onClick={this.edit}/></p>
-        <p><input type="button" value="Go to YOUR DOCUMENTS" id="document" onClick={this.goToYourDocuments}/></p>
-    </div>
-      
+          <h1>YOUR PROFILE</h1>
+          <p>Your Name    :{this.state.user.firstName}</p>
+          <p>Your Surname :{this.state.user.lastName}</p>
+          <p>Your Mail    :{this.state.user.email}</p>
+          <p>Your Password:</p>
+          <p>Your Country :{this.state.user.country}</p>
+          <p>Your Canton :{this.state.user.canton}</p>
+          <p>Your Birthday:{this.state.user.birthday}</p>
+          <p><input type="button" value="EDIT" id="edit" onClick={this.edit}/></p>
+          <p><input type="button" value="Go to YOUR DOCUMENTS" id="document" onClick={this.goToYourDocuments}/></p>
+      </div>
     );
   }
-}
-)
+})

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
 export class Official extends Component{
-    constructor(props) {
-		super(props);
-		this.familyUnion = this.familyUnion.bind(this);
-	  }
+  constructor(props) {
+      super(props);
+      this.familyUnion = this.familyUnion.bind(this);
+	}
 
   familyUnion(){
     return window.location.href = "/FamilyUnion"
@@ -20,7 +20,8 @@ export class Official extends Component{
 	  }).then(function(data) {
 		  return window.location.href = "/FamilyUnion" 
 	  }); */
-}
+  }
+
   render() {
      return (
         <div id="official">
@@ -31,10 +32,10 @@ export class Official extends Component{
             <p><input type="button" id="file" value="File Combination" onClick={this.fileCombination}/></p>
             <p><input type="button" id="canton-change" value="Canton Change" onClick={this.cantonChange}/></p>
             <p><input type="button" id="camp-change" value="Camp Change" onClick={this.campChange}/></p>
-        {this.props.children}
+            {this.props.children}
         </div>
-        
      )
   }
 }
+
 export default Official;

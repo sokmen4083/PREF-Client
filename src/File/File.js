@@ -21,11 +21,9 @@ export class File extends Component {
 	  }).then(function(data) {
 		  return window.location.href = "/OfficialDocuments" 
 	  });*/ 
-}
+  }
+
   render() {
-
-    console.log(this.props);
-
     return (
         <div id="files">
             <div>

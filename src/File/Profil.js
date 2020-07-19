@@ -38,7 +38,7 @@ export default withOktaAuth(class Profil extends Component {
 	  }).then(function(response) {
 		  return response.json();
 	  }).then(function(data) {
-		  return window.location.href = "/File" 
+		  return window.location.href = "/OfficialDocument" 
 	  });  
   }
 

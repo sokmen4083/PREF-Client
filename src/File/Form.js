@@ -52,7 +52,7 @@ export class Form extends Component {
         <p>BIRTHDAY : 
           <input type="date" id="date" name="birthday" value={this.state.user.birthday} onChange={this.handleInputChange}/></p>
         <p>
-        <div><p>COUNTRY
+        <div><p>COUNTRY : 
         <select value={this.state.value} onChange={this.handleChange}>
   <option value="AF">Afghanistan</option>
 	<option value="AX">Åland Islands</option>

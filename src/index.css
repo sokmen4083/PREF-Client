@@ -37,7 +37,7 @@ input,select{
 #submit{
   position: absolute;
   right: 5px;
-  background-color:#b0e0e6;
+  background-color:#2bc7db;
   width: 100px;
   height: 35px;
 }
@@ -76,14 +76,10 @@ input,select{
   border-width: 20px;
   background-color:green;
 }
-#family,#file,#canton-change,#camp-change{
-  border-style: groove;
-  border-width: 15px;
-  background-color:brown;
-}
-#family-union{
+
+#family-union,#file-combination{
   width: 900px;
-  height: 600px;
+  height: 500px;
   padding: 20px;
   background-color:yellow;
   position: relative;
@@ -99,7 +95,7 @@ input,select{
 
   
 }
-#family-union input{ 
+#family-union input,#file-combination input{ 
   width: 400px;
 }
 

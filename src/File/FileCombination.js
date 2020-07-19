@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import { Jumbotron, Button,} from 'react-bootstrap';
 
 
-export class Family extends Component {
+export class FileCombination extends Component {
 
   render() {
     return (
       <Jumbotron>
-        <h1>Family Union</h1>
+        <h1>File Combination</h1>
         <p>
-         The document needed for a person who has been living in Switzerland 
-         and whose family is outside Europe to bring her family to Switzerland
-         can be accessed from this section.
+          The document needed to bring the family of a person who 
+          has settled in Switzerland and whose family has taken refuge 
+          in another country in Europe can be found here.
         </p>
         
-        <div id="family-union">
+        <div id="file-combination">
           <p>FAMILY MEMBERS : <input type="number" placeholder="please enter your family members"></input></p>
           <div id="wife">
           <p>YOUR WIFE'S NAME : <input type="text" placeholder="please enter your wife's name"></input></p>

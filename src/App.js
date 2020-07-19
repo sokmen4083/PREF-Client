@@ -4,7 +4,6 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { LoginCallback, SecureRoute, Security } from '@okta/okta-react';
 import { default as Profil } from './File/Profil';
-import { File } from './File/File';
 import { Family } from './File/FamilyUnion';
 import { FamilyPdf } from './File/Family-Pdf';
 import { Official } from './File/OfficialDocument';
@@ -16,6 +15,10 @@ import logo from './logom.png';
 
 import { Container, Row, Col, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { SıgnIn } from './File/Sİgn-In';
+import { FileCombination } from './File/FileCombination';
+import { Jobs } from './File/Job';
+import { Course } from './File/Course';
+import { Social } from './File/SocialLife';
 
 
 
@@ -37,8 +40,8 @@ function App() {
                       <Nav.Link><Link to="/contact">Contact</Link></Nav.Link>
                       <NavDropdown title="My Pref" id="basic-nav-dropdown">
                         <NavDropdown.Item><Link to="/officialDocument">Official Documents</Link></NavDropdown.Item>
-                        <NavDropdown.Item><Link to="/jobs">Job Opportunuties</Link></NavDropdown.Item>
-                        <NavDropdown.Item><Link to="/coursers">Course Opportunuties</Link></NavDropdown.Item>
+                        <NavDropdown.Item><Link to="/job">Job Opportunuties</Link></NavDropdown.Item>
+                        <NavDropdown.Item><Link to="/course">Course Opportunuties</Link></NavDropdown.Item>
                         <NavDropdown.Item><Link to="/socialLife">Social Life</Link></NavDropdown.Item>
                       </NavDropdown>
                   </Nav>
@@ -64,7 +67,6 @@ function App() {
                   <Route path='/callback' component={LoginCallback}/>
                   <Route path='/form' component={Form}/>
                   <Route path='/profil' component={Profil}/>
-                  <Route path='/file' component={File}/>
                   <Route path='/FamilyUnion' component={Family}/>
                   <Route path='/Family-Pdf' component={FamilyPdf}/>
                   <Route path='/officialDocument' component={Official}/>
@@ -72,6 +74,10 @@ function App() {
                   <Route path='/about' component={About}/>
                   <Route path='/contact' component={Contact}/>
                   <Route path='/sign-in' component={SıgnIn}/>
+                  <Route path='/fileCombination' component={FileCombination}/>
+                  <Route path='/Job' component={Jobs}/>
+                  <Route path='/Course' component={Course}/>
+                  <Route path='/SocialLife' component={Social}/>
                 </Security>
             </Col>
           </Row>

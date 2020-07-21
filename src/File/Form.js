@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 export class Form extends Component {
 	constructor(props) {
 		super(props);
@@ -53,7 +54,7 @@ export class Form extends Component {
           <input type="date" id="date" name="birthday" value={this.state.user.birthday} onChange={this.handleInputChange}/></p>
         <p>
         <div><p>COUNTRY : 
-        <select value={this.state.value} onChange={this.handleChange}>
+        <select value={this.state.value} onChange={this.handleSelectChange}>
   <option value="AF">Afghanistan</option>
 	<option value="AX">Åland Islands</option>
 	<option value="AL">Albania</option>
@@ -305,7 +306,7 @@ export class Form extends Component {
 	<option value="ZW">Zimbabwe</option>
 </select></p>
 <p>LANGUAGE : 
-<select value={this.state.value} onChange={this.handleChange}>
+<select value={this.state.value} onChange={this.handleSelectChange}>
     <option value="AF">Afrikaans</option>
     <option value="SQ">Albanian</option>
     <option value="AR">Arabic</option>
@@ -381,7 +382,7 @@ export class Form extends Component {
   </select>
 </p>
 <p>CANTON: 
-<select value={this.state.value} onChange={this.handleChange}>
+<select value={this.state.value} onChange={this.handleSelectChange}>
     <option value="AG"> Aargau</option>
     <option value="AI"> Appenzell Innerrhoden</option>
     <option value="AR">Appenzell Ausserrhoden</option>

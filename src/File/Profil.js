@@ -23,7 +23,7 @@ export default withOktaAuth(class Profil extends Component {
     fetch('http://localhost:5501/users/email/'+userInfo.email).then(function(response) {
 		  return response.json();
 	  }).then((data) => {
-      this.setState({user: data[0]});
+      this.setState({user: data[2]});
     });
   }
 
@@ -54,9 +54,9 @@ export default withOktaAuth(class Profil extends Component {
           <p>Your Surname :{this.state.user.lastName}</p>
           <p>Your Mail    :{this.state.user.email}</p>
           <p>Your Password:</p>
+          <p>Your Birthday:{this.state.user.birthday}</p>
           <p>Your Country :{this.state.user.country}</p>
           <p>Your Canton :{this.state.user.canton}</p>
-          <p>Your Birthday:{this.state.user.birthday}</p>
           <p><input type="button" value="EDIT" id="edit" onClick={this.edit}/></p>
           <p><input type="button" value="Go to YOUR DOCUMENTS" id="document" onClick={this.goToYourDocuments}/></p>
       </div>

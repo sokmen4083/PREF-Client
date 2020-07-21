@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 
 export class FamilyPdf extends Component {
@@ -13,7 +14,18 @@ export class FamilyPdf extends Component {
 	  return window.print();
   }
 
-  generatePDF(){    
+  generatePDF(){ 
+    const input = document.getElementById('family-pdf');
+    console.log(input, html2canvas)
+    html2canvas(input)
+      .then((canvas) => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF();
+        pdf.addImage(imgData, 'JPEG', 0, 0,);
+        // pdf.output('dataurlnewwindow');
+        pdf.save("download.pdf");
+      })
+    ;   
   }   
   
   render() {

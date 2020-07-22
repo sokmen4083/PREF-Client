@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Jumbotron, Card, Container, Row, Col } from 'react-bootstrap';
-import document from './document.png'
+import contact from './contact.png'
 
 
 
@@ -21,7 +21,7 @@ render() {
           <Col>
           
             <Card style={{ width: '18rem' }}>
-            <img src={document} width="60" height="40" className="d-inline-block align-top" alt=""/>
+            <img src={contact} width="60" height="40" className="d-inline-block align-top" alt=""/>
               <Card.Body>
                 <Card.Title>Contact us</Card.Title>
                 <Card.Text>

@@ -7,7 +7,7 @@ import { default as Profil } from './File/Profil';
 import { Family } from './File/FamilyUnion';
 import { FamilyPdf } from './File/Family-Pdf';
 import { Official } from './File/OfficialDocument';
-import { Form } from './File/Form';
+import { RegisterForm } from './File/Form';
 import { Home } from './Dashboard/Home';
 import { About } from './Dashboard/About';
 import { Contact } from './Dashboard/Contact';
@@ -19,7 +19,6 @@ import { FileCombination } from './File/FileCombination';
 import { Jobs } from './File/Job';
 import { Course } from './File/Course';
 import { Social } from './File/SocialLife';
-
 
 
 function App() {
@@ -65,7 +64,6 @@ function App() {
                           pkce={true}>
                   <SecureRoute path='/' exact={true} component={Dashboard}/>
                   <Route path='/callback' component={LoginCallback}/>
-                  <Route path='/form' component={Form}/>
                   <Route path='/profil' component={Profil}/>
                   <Route path='/FamilyUnion' component={Family}/>
                   <Route path='/Family-Pdf' component={FamilyPdf}/>
@@ -78,6 +76,8 @@ function App() {
                   <Route path='/Job' component={Jobs}/>
                   <Route path='/Course' component={Course}/>
                   <Route path='/SocialLife' component={Social}/>
+                  <Route path='/form' component={RegisterForm}/>
+
                 </Security>
             </Col>
           </Row>

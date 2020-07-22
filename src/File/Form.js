@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Form, Button } from 'react-bootstrap';
 
 
-export class Form extends Component {
+
+export class RegisterForm extends Component {
 	constructor(props) {
 		super(props);
 		this.sendProfileInfo = this.sendProfileInfo.bind(this);
@@ -41,21 +43,33 @@ export class Form extends Component {
 
   render() {
     return (
-		<div>
-      <form id="registration">
-        <h1>REGISTRATION FORM</h1>
-        <p>NAME : 
-          <input type="text" id="name" name="firstName" placeholder="please enter your name" value={this.state.user.firstName} onChange={this.handleInputChange}/></p>
-        <p>SURNAME : 
-          <input type="text" id="surname" name="lastName" placeholder="please enter your surname" value={this.state.user.lastName} onChange={this.handleInputChange}/></p>
-        <p>EMAIL : 
-          <input type="email" id="email" name="email" placeholder="please enter your Email" value={this.state.user.email} onChange={this.handleInputChange}/></p>
-        <p>BIRTHDAY : 
-          <input type="date" id="date" name="birthday" value={this.state.user.birthday} onChange={this.handleInputChange}/></p>
-        <p>
-        <div><p>COUNTRY : 
-        <select value={this.state.value} onChange={this.handleSelectChange}>
-  <option value="AF">Afghanistan</option>
+		<Form>
+  <Form.Group controlId="formBasicEmail">
+    <Form.Label>Name</Form.Label>
+    <Form.Control type="text" name="firstName" placeholder="Enter your name" value={this.state.user.firstName} onChange={this.handleInputChange} />
+  </Form.Group>
+
+  <Form.Group controlId="formBasicEmail">
+    <Form.Label>Surname</Form.Label>
+    <Form.Control type="text" name="lastName" placeholder="Enter your surname" value={this.state.user.lastName} onChange={this.handleInputChange}/>
+  </Form.Group>
+
+  <Form.Group controlId="formBasicEmail">
+    <Form.Label>Email address</Form.Label>
+    <Form.Control type="email"  name="email" placeholder="Enter your email" value={this.state.user.email} onChange={this.handleInputChange} />
+    <Form.Text className="text-muted">
+      We'll never share your email with anyone else.
+    </Form.Text>
+  </Form.Group>
+
+  <Form.Group controlId="formBasicEmail">
+    <Form.Label>Birthday</Form.Label>
+    <Form.Control type="date" name="birthday" value={this.state.user.birthday} onChange={this.handleInputChange}/>
+  </Form.Group>
+  <Form.Group controlId="exampleForm.ControlSelect1">
+    <Form.Label>Country</Form.Label>
+    <Form.Control as="select" name="country" value={this.state.value} onChange={this.handleSelectChange}>
+    <option value="AF">Afghanistan</option>
 	<option value="AX">Åland Islands</option>
 	<option value="AL">Albania</option>
 	<option value="DZ">Algeria</option>
@@ -304,9 +318,12 @@ export class Form extends Component {
 	<option value="YE">Yemen</option>
 	<option value="ZM">Zambia</option>
 	<option value="ZW">Zimbabwe</option>
-</select></p>
-<p>LANGUAGE : 
-<select value={this.state.value} onChange={this.handleSelectChange}>
+    </Form.Control>
+  </Form.Group>
+
+  <Form.Group controlId="exampleForm.ControlSelect1">
+    <Form.Label>Language</Form.Label>
+    <Form.Control as="select" value={this.state.value} onChange={this.handleSelectChange}>
     <option value="AF">Afrikaans</option>
     <option value="SQ">Albanian</option>
     <option value="AR">Arabic</option>
@@ -379,10 +396,11 @@ export class Form extends Component {
     <option value="VI">Vietnamese</option>
     <option value="CY">Welsh</option>
     <option value="XH">Xhosa</option>
-  </select>
-</p>
-<p>CANTON: 
-<select value={this.state.value} onChange={this.handleSelectChange}>
+    </Form.Control>
+  </Form.Group>
+  <Form.Group controlId="exampleForm.ControlSelect1">
+    <Form.Label>Canton</Form.Label>
+    <Form.Control as="select" name="canton" value={this.state.value} onChange={this.handleSelectChange}>
     <option value="AG"> Aargau</option>
     <option value="AI"> Appenzell Innerrhoden</option>
     <option value="AR">Appenzell Ausserrhoden</option>
@@ -409,12 +427,15 @@ export class Form extends Component {
     <option value="VS">Valais (Wallis)</option>
     <option value="ZG">Zug</option>
     <option value="ZH">Zürih (Zürich)</option>
-  </select></p>
-  </div>
-           <input type="button" value="SUBMIT" id="submit" onClick={this.sendProfileInfo}/></p> 
-      </form>
-	  </div>
-      
+    </Form.Control>
+  </Form.Group>
+  <Form.Group controlId="formBasicCheckbox">
+    <Form.Check type="checkbox" label="Check me out" />
+  </Form.Group>
+  <Button variant="primary" type="submit" href="Profil" onClick={this.sendProfileInfo}>
+    Submit
+  </Button>
+</Form>
     );
   }
 }

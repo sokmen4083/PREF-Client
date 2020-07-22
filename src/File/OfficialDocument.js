@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { Jumbotron, Button, Card, Container, Row, Col} from 'react-bootstrap';
+import family from './family.svg'
+import document from './document.png'
+import change from './change.svg'
+
 
 
 export class Official extends Component {
@@ -18,6 +22,7 @@ export class Official extends Component {
             <Col>
             
               <Card style={{ width: '18rem' }}>
+              <img src={family} width="60" height="40" className="d-inline-block align-top" alt=""/>
                 <Card.Body>
                   <Card.Title>Family Union</Card.Title>
                   <Card.Text>
@@ -34,6 +39,7 @@ export class Official extends Component {
 
               <Card style={{ width: '18rem' }}>
                   <Card.Body>
+                  <img src={document} width="60" height="40" className="d-inline-block align-top" alt=""/>
                     <Card.Title>File Combination</Card.Title>
                     <Card.Text>
                       The document needed to bring the family of a person who 
@@ -48,6 +54,7 @@ export class Official extends Component {
             <Col>
 
               <Card style={{ width: '18rem' }}>
+              <img src={change} width="60" height="40" className="d-inline-block align-top" alt=""/>
                 <Card.Body>
                   <Card.Title>Canton Change</Card.Title>
                   <Card.Text>
@@ -62,6 +69,7 @@ export class Official extends Component {
             <Col>
 
               <Card style={{ width: '18rem' }}>
+              <img src={change} width="60" height="40" className="d-inline-block align-top" alt=""/>
                 <Card.Body>
                   <Card.Title>Camp Change</Card.Title>
                   <Card.Text>

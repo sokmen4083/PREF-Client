@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Jumbotron, Card, Container, Row, Col} from 'react-bootstrap';
+import social from './social.png'
 
 
 export class Social extends Component {
@@ -7,6 +8,7 @@ export class Social extends Component {
   render() {
     return (
       <Jumbotron>
+        <img src={social} width="60" height="40" className="d-inline-block align-top" alt=""/>
         <h1>Social Life</h1>
         <p>
           In this section, you can get information about social life in Switzerland.

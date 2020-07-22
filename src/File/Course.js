@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Jumbotron, Card, Container, Row, Col} from 'react-bootstrap';
+import course from './course.png'
 
 
 export class Course extends Component {
@@ -7,6 +8,7 @@ export class Course extends Component {
   render() {
     return (
       <Jumbotron>
+        <img src={course} width="60" height="40" className="d-inline-block align-top" alt=""/>
         <h1>Courses</h1>
         <p>
           In this section, you can easily find the list and 

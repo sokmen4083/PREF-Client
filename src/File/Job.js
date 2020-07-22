@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Jumbotron, Card, Container, Row, Col} from 'react-bootstrap';
+import job from './job.png'
 
 
 export class Jobs extends Component {
@@ -7,6 +8,7 @@ export class Jobs extends Component {
   render() {
     return (
       <Jumbotron>
+      <img src={job} width="60" height="40" className="d-inline-block align-top" alt=""/>
         <h1>Jobs</h1>
         <p>
           In this section, you can easily find suitable job opportunities..

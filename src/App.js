@@ -47,7 +47,7 @@ function App() {
                 </Navbar.Collapse>
                 <Navbar.Collapse className="justify-content-end">
                 <Navbar.Text>
-                  Signed in as: <a href="#login">Mark Otto</a> | <a href="#login">Sign out</a>
+                  Signed in as: <a href="Profil">Welcome;Mehmet</a> | <a href="home">Sign out</a>
                 </Navbar.Text>
                 <Navbar.Text>
                   <a href="/Sign-In">Sign in</a> | <a href="/Form">Register</a>

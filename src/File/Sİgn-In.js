@@ -36,16 +36,14 @@ export class SıgnIn extends Component {
     this.setState({user});
   }
 
-  handleSelectChange(event) {
-     this.setState({value: event.target.value});
-  }
+  
 
   render() {
     return (
       <Form>
       <Form.Group controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
-        <Form.Control type="email"  name= "email" placeholder="Enter your email" />
+        <Form.Control type="email"  name="email" placeholder="Enter your email" value={this.state.user.email} onChange={this.handleInputChange} />
         
       </Form.Group>
     
@@ -56,7 +54,7 @@ export class SıgnIn extends Component {
       <Form.Group controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="Check me out" />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit" onClick={this.sendProfileInfo}>
         Submit
       </Button>
     </Form>

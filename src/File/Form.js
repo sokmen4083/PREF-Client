@@ -38,7 +38,11 @@ export class RegisterForm extends Component {
   }
 
   handleSelectChange(event) {
-     this.setState({value: event.target.value});
+	const target = event.target;
+	const name = target.name;
+	let user = this.state.user;
+    user[name] = target.value;
+    this.setState({user});
   }
 
   render() {
@@ -68,7 +72,7 @@ export class RegisterForm extends Component {
   </Form.Group>
   <Form.Group controlId="exampleForm.ControlSelect1">
     <Form.Label>Country</Form.Label>
-    <Form.Control as="select" name="country" value={this.state.value} onChange={this.handleSelectChange}>
+    <Form.Control as="select" name="country" value={this.state.user.country} onChange={this.handleSelectChange}>
     <option value="AF">Afghanistan</option>
 	<option value="AX">Åland Islands</option>
 	<option value="AL">Albania</option>
@@ -400,7 +404,7 @@ export class RegisterForm extends Component {
   </Form.Group>
   <Form.Group controlId="exampleForm.ControlSelect1">
     <Form.Label>Canton</Form.Label>
-    <Form.Control as="select" name="canton" value={this.state.value} onChange={this.handleSelectChange}>
+    <Form.Control as="select" name="canton" value={this.state.user.canton} onChange={this.handleSelectChange}>
     <option value="AG"> Aargau</option>
     <option value="AI"> Appenzell Innerrhoden</option>
     <option value="AR">Appenzell Ausserrhoden</option>

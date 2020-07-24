@@ -1,5 +1,6 @@
-  import React, { Component } from 'react';
+import React, { Component } from 'react';
 import {withOktaAuth} from '@okta/okta-react';
+
 
 
 async function checkUser() {
@@ -23,7 +24,7 @@ export default withOktaAuth(class Profil extends Component {
     fetch('http://localhost:5501/users/email/'+userInfo.email).then(function(response) {
 		  return response.json();
 	  }).then((data) => {
-      this.setState({user: data[2]});
+      this.setState({user: data[0]});
     });
   }
 
@@ -53,7 +54,6 @@ export default withOktaAuth(class Profil extends Component {
           <p>Your Name    :{this.state.user.firstName}</p>
           <p>Your Surname :{this.state.user.lastName}</p>
           <p>Your Mail    :{this.state.user.email}</p>
-          <p>Your Password:</p>
           <p>Your Birthday:{this.state.user.birthday}</p>
           <p>Your Country :{this.state.user.country}</p>
           <p>Your Canton :{this.state.user.canton}</p>

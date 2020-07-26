@@ -1,28 +1,31 @@
 import React, { Component } from 'react';
+import {withOktaAuth} from '@okta/okta-react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
 async function checkUser() {
-  const fileInfo = await this.props.authService.getFiles();
+  const fileInfo = await this.props.authService.getUser();
   console.log(fileInfo)
-  this.setState({ file: fileInfo.name });
+  this.setState({ okta_email: fileInfo.files });
   return fileInfo;
 }
 
-export class FamilyPdf extends Component {
+export default withOktaAuth(class FamilyPdf extends Component {
   constructor(props) {
 		super(props);
     this.sendToPrint = this.sendToPrint.bind(this);
     this.generatePDF = this.generatePDF.bind(this);
     this.checkUser = checkUser.bind(this);
+    this.state = {files:{}};
+
 
   }
   async componentDidMount() {
-    const userInfo = await this.checkUser();
-    fetch('http://localhost:5501/files/email/'+userInfo.email).then(function(response) {
+    const fileInfo = await this.checkUser();
+    fetch('http://localhost:5501/files/files/'+fileInfo.files).then(function(response) {
 		  return response.json();
 	  }).then((data) => {
-      this.setState({user: data[0]});
+      this.setState({files: data[0]});
     });
   }
   
@@ -47,6 +50,7 @@ export class FamilyPdf extends Component {
   
   render() {
     return (
+      <div>
             <div id="family-pdf">
             <div id="user-information"> 
     <p id="user-name">............</p>
@@ -65,16 +69,17 @@ export class FamilyPdf extends Component {
     <div id="user-place">..........</div>,den <div id="user-date">...............</div>
 
 
-    <p>Gesuch um Familienasyl im Sinne des Art. 51 AsylG für die Ehefrau <span id="user-wifeName">{this.state.files.wifesName}</span>, 
-    geboren am <span id="user-wifeBirthday">{this.state.files.wifesBirthday}</span>, 
-    für den Sohn, <span id="user-firstChildName">{this.state.files.firstChildName}</span>, 
-    geboren am <span id="user-firstChildBirthday">{this.state.files.firstChildBirthday}</span>, 
-    für die Tochter, <span id="user-secondChildName">{this.state.files.secondChildName}</span>, 
-    geboren am <span id="user-secondChildBirthday">{this.state.files.secondChildBirthday}</span>, 
-    für die Tochter, <span id="user-thirdChildName">{this.state.files.thirdChildName}</span>, 
-    geboren am <span id="user-thirdChildBirthday">{this.state.files.thirdChildBirthday}</span>,
-     und für den Sohn <span id="user-forthChildName">..............</span>, 
-     geboren am <span id="user-forthChildBirthday">...............</span>, 
+    <p>Gesuch um Familienasyl im Sinne des Art. 51 AsylG 
+    für die Ehefrau {this.state.files.wifesName}, 
+    geboren am {this.state.files.wifesBirthday}, 
+    für den Sohn, {this.state.files.firstChildName}, 
+    geboren am {this.state.files.firstChildBirthday}, 
+    für die Tochter,{this.state.files.secondChildName}, 
+    geboren am {this.state.files.secondChildBirthday}, 
+    für die Tochter, {this.state.files.thirdChildName}, 
+    geboren am {this.state.files.thirdChildBirthday},
+     und für den Sohn {this.state.files.forthChildName}, 
+     geboren am {this.state.files.forthChildBirthday}, 
      alle türkische Staatsangehörige
     <span id="user-name">................</span>, 
     geboren am <span id="user-birthday">..............</span>,
@@ -87,7 +92,7 @@ export class FamilyPdf extends Component {
 
 
     <p><span id="user-country">.............</span> Adresse: </p>
-    <p><span id="user-countryAdress">{this.state.files.adress}</span></p>
+    <p>{this.state.files.adress}</p>
 
     <p>Ich ersuche Sie deshalb, die Einreise meiner Familienangehörigen in die Schweiz im Sinne des Art. 51 Asyl zu genehmigen. Folgende Unterlagen lege ich diesem Brief bei :</p> 
 
@@ -98,12 +103,13 @@ export class FamilyPdf extends Component {
         <li>Kopien der Identitätskarten</li>
         <li>Kopien der Reisepässe</li>
         </ul>  
+        </div>
 
-        <p><input type="button" value="PRINT" id="print" onClick={this.sendToPrint}/></p> 
         <div>
-                <input type="button" value="Download PDF" onClick={this.generatePDF}/> 
+        <p><input type="button" value="PRINT" id="print" onClick={this.sendToPrint}/></p> 
+        <p><input type="button" value="Download PDF" onClick={this.generatePDF}/></p> 
           </div>
         </div>
     );
   }
-}
+})

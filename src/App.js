@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { LoginCallback, SecureRoute, Security } from '@okta/okta-react';
 import { default as Profil } from './File/Profil';
 import { Family } from './File/FamilyUnion';
-import { FamilyPdf } from './File/Family-Pdf';
+import { default as FamilyPdf } from './File/Family-Pdf';
 import { Official } from './File/OfficialDocument';
 import { RegisterForm } from './File/Form';
 import { Home } from './Dashboard/Home';
@@ -62,8 +62,8 @@ function App() {
                           clientId='0oajr54xsSO4dG5dc4x6'
                           redirectUri={window.location.origin + '/callback'}
                           pkce={true}>
-                  <SecureRoute path='/' exact={true} component={Dashboard}/>
                   <Route path='/callback' component={LoginCallback}/>
+                  <SecureRoute path='/' exact={true} component={Dashboard}/>
                   <Route path='/profil' component={Profil}/>
                   <Route path='/FamilyUnion' component={Family}/>
                   <Route path='/Family-Pdf' component={FamilyPdf}/>

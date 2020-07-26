@@ -5,20 +5,20 @@ import family from './family.svg'
 
 export class Family extends Component {
   constructor(props) {
-		super(props);
-		this.sendFilesInfo = this.sendFilesInfo.bind(this);
-		this.handleInputChange = this.handleInputChange.bind(this);
-		this.state = {file:{}};
+      super(props);
+      this.sendFilesInfo = this.sendFilesInfo.bind(this);
+      this.handleInputChange = this.handleInputChange.bind(this);
+      this.state = {file:{}};
   }
   sendFilesInfo()
   {
-	  let profilData = this.state.file;
+	  let familyData = this.state.file;
 	  fetch('http://localhost:5501/files/family',{
 		method: 'post',
 		headers: {
 			'Content-Type': 'application/json'
 		},
-		body: JSON.stringify(profilData)
+		body: JSON.stringify(familyData)
 	  }).then(function(response) {
 		  return response.json();
 	  }).then(function(data) {
@@ -64,7 +64,7 @@ export class Family extends Component {
   
   <Form.Group controlId="formBasicEmail">
     <Form.Label>Your First Child's Name</Form.Label>
-    <Form.Control type="text" placeholder="please enter your wife's name" name="firstChildName" onChange={this.handleInputChange} />
+    <Form.Control type="text" placeholder="please enter your first child's name" name="firstChildName" onChange={this.handleInputChange} />
   </Form.Group>
 
   <Form.Group controlId="formBasicEmail">
@@ -74,7 +74,7 @@ export class Family extends Component {
 
   <Form.Group controlId="formBasicEmail">
     <Form.Label>Your Second Child's Name</Form.Label>
-    <Form.Control type="text" placeholder="please enter your wife's name" name="secondChildName" onChange={this.handleInputChange}/>
+    <Form.Control type="text" placeholder="please enter your second child's name" name="secondChildName" onChange={this.handleInputChange}/>
   </Form.Group>
 
   <Form.Group controlId="formBasicEmail">
@@ -84,12 +84,22 @@ export class Family extends Component {
 
   <Form.Group controlId="formBasicEmail">
     <Form.Label>Your Third Child's Name</Form.Label>
-    <Form.Control type="text" placeholder="please enter your wife's name" name="thirdChildName" onChange={this.handleInputChange}/>
+    <Form.Control type="text" placeholder="please enter your third child's name" name="thirdChildName" onChange={this.handleInputChange}/>
   </Form.Group>
 
   <Form.Group controlId="formBasicEmail">
     <Form.Label>Your Third Child's Birthday</Form.Label>
     <Form.Control type="date" name="thirdChildBirthday" onChange={this.handleInputChange}/>
+  </Form.Group>
+
+  <Form.Group controlId="formBasicEmail">
+    <Form.Label>Your Fourth Child's Name</Form.Label>
+    <Form.Control type="text" placeholder="please enter your forth child's name" name="forthChildName" onChange={this.handleInputChange}/>
+  </Form.Group>
+
+  <Form.Group controlId="formBasicEmail">
+    <Form.Label>Your Fourth Child's Birthday</Form.Label>
+    <Form.Control type="date" name="forthChildBirthday" onChange={this.handleInputChange}/>
   </Form.Group>
 
   <Form.Group controlId="formBasicEmail">

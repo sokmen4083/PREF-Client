@@ -24,7 +24,7 @@ export default withOktaAuth(class Profil extends Component {
     fetch('http://localhost:5501/users/email/'+userInfo.email).then(function(response) {
 		  return response.json();
 	  }).then((data) => {
-      this.setState({user: data[0]});
+      this.setState({user: data[1]});
     });
   }
 

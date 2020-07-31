@@ -3,10 +3,10 @@ import {withOktaAuth} from '@okta/okta-react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
-async function checkUser() {
+async function checkFiles() {
   const fileInfo = await this.props.authService.getUser();
   console.log(fileInfo)
-  this.setState({ okta_email: fileInfo.files });
+  this.setState({ fileInfo: fileInfo.files });
   return fileInfo;
 }
 
@@ -15,13 +15,13 @@ export default withOktaAuth(class FamilyPdf extends Component {
 		super(props);
     this.sendToPrint = this.sendToPrint.bind(this);
     this.generatePDF = this.generatePDF.bind(this);
-    this.checkUser = checkUser.bind(this);
+    this.checkFiles = checkFiles.bind(this);
     this.state = {files:{}};
 
 
   }
   async componentDidMount() {
-    const fileInfo = await this.checkUser();
+    const fileInfo = await this.checkFiles();
     fetch('http://localhost:5501/files/files/'+fileInfo.files).then(function(response) {
 		  return response.json();
 	  }).then((data) => {

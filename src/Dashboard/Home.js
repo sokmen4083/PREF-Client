@@ -39,7 +39,7 @@ export class Home extends Component {
                     In this section, you can easily access the documents you need. 
                     Family reunification, file combination, canton change, camp change ..
                   </Card.Text>
-                  <Button variant="primary" href="/OfficialDocument">Go to Official Document</Button>
+                  <Button variant="primary" href="/protected/OfficialDocument">Go to Official Document</Button>
                 </Card.Body>
               </Card>
             
@@ -54,7 +54,7 @@ export class Home extends Component {
                       In this section, you can easily find suitable job opportunities..
                       You can find out which business areas you need in your canton
                     </Card.Text>
-                    <Button variant="primary" href="Job">Go to Jobs</Button>
+                    <Button variant="primary" href="/protected/Job">Go to Jobs</Button>
                   </Card.Body>
                 </Card>            
             
@@ -69,7 +69,7 @@ export class Home extends Component {
                     In this section, you can easily find the list and 
                     popular ranking of the courses in your cantons.
                   </Card.Text>
-                  <Button variant="primary" href="Course">Go to Courses</Button>
+                  <Button variant="primary" href="/protected/Course">Go to Courses</Button>
                 </Card.Body>
               </Card>
             
@@ -84,7 +84,7 @@ export class Home extends Component {
                     In this section, you can get information about social life in Switzerland.
                     Places to visit, transportation facilities, Swiss History ...
                   </Card.Text>
-                  <Button variant="primary" href="SocialLife">Go to Social Life</Button>
+                  <Button variant="primary" href="/protected/SocialLife">Go to Social Life</Button>
                 </Card.Body>
               </Card>
             

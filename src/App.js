@@ -20,8 +20,37 @@ import { Jobs } from './File/Job';
 import { Course } from './File/Course';
 import { Social } from './File/SocialLife';
 
+import UserService from './service/UserService'
+
+
+function Register(){
+  return (
+    <>
+      <Link to="/Signin">Sign in</Link> | <Link to="/Register">Register</Link>
+    </>
+  )
+}
+
+function SignOut(){
+  return (
+    <>
+      <Link to="/Profil">?</Link> | <Link to="/home">Sign out</Link>
+    </>
+  )
+}
+
+function AuthenticationHeader(){
+  let user = UserService.getCurrentUser();
+
+  return (
+    <Nav.Link>
+      {user ? <SignOut/> : <Register/>}
+    </Nav.Link>
+  );
+}
 
 function App() {
+
   return (
     <Router>
         <Container>
@@ -38,21 +67,16 @@ function App() {
                       <Nav.Link><Link to="/about">About</Link></Nav.Link>
                       <Nav.Link><Link to="/contact">Contact</Link></Nav.Link>
                       <NavDropdown title="My Pref" id="basic-nav-dropdown">
-                        <NavDropdown.Item><Link to="/officialDocument">Official Documents</Link></NavDropdown.Item>
-                        <NavDropdown.Item><Link to="/job">Job Opportunuties</Link></NavDropdown.Item>
-                        <NavDropdown.Item><Link to="/course">Course Opportunuties</Link></NavDropdown.Item>
-                        <NavDropdown.Item><Link to="/socialLife">Social Life</Link></NavDropdown.Item>
+                        <NavDropdown.Item><Link to="/protected/officialDocument">Official Documents</Link></NavDropdown.Item>
+                        <NavDropdown.Item><Link to="/protected/job">Job Opportunuties</Link></NavDropdown.Item>
+                        <NavDropdown.Item><Link to="/protected/course">Course Opportunuties</Link></NavDropdown.Item>
+                        <NavDropdown.Item><Link to="/protected/socialLife">Social Life</Link></NavDropdown.Item>
                       </NavDropdown>
                   </Nav>
                 </Navbar.Collapse>
                 <Navbar.Collapse className="justify-content-end">
-                <Navbar.Text>
-                  Signed in as: <a href="Profil">Welcome;Mehmet</a> | <a href="home">Sign out</a>
-                </Navbar.Text>
-                <Navbar.Text>
-                  <a href="/Sign-In">Sign in</a> | <a href="/Form">Register</a>
-                </Navbar.Text>
-              </Navbar.Collapse>
+                  <AuthenticationHeader/>
+                </Navbar.Collapse>
             </Navbar>
             </Col>
           </Row>
@@ -62,23 +86,25 @@ function App() {
                           clientId='0oajr54xsSO4dG5dc4x6'
                           redirectUri={window.location.origin + '/callback'}
                           pkce={true}>
-                  <Route path='/callback' component={LoginCallback}/>
-                  <SecureRoute path='/' exact={true} component={Dashboard}/>
-                  <Route path='/profil' component={Profil}/>
-                  <Route path='/FamilyUnion' component={Family}/>
-                  <Route path='/Family-Pdf' component={FamilyPdf}/>
-                  <Route path='/officialDocument' component={Official}/>
+                    <Route path='/callback' component={LoginCallback}/>
+                    <SecureRoute path='/protected' component={Dashboard}/>
+                    <Route path='/protected/profil' component={Profil}/>
+                    <Route path='/protected/FamilyUnion' component={Family}/>
+                    <Route path='/protected/Family-Pdf' component={FamilyPdf}/>
+                    <Route path='/protected/officialDocument' component={Official}/>
+                    
+                    <Route path='/protected/fileCombination' component={FileCombination}/>
+                    <Route path='/protected/Job' component={Jobs}/>
+                    <Route path='/protected/Course' component={Course}/>
+                    <Route path='/protected/SocialLife' component={Social}/>
+                    <Route path='/protected/form' component={RegisterForm}/>
+                  </Security>
+                  
+                  <Route path='/' exact={true} component={Home}/>
                   <Route path='/home' component={Home}/>
                   <Route path='/about' component={About}/>
                   <Route path='/contact' component={Contact}/>
                   <Route path='/sign-in' component={SıgnIn}/>
-                  <Route path='/fileCombination' component={FileCombination}/>
-                  <Route path='/Job' component={Jobs}/>
-                  <Route path='/Course' component={Course}/>
-                  <Route path='/SocialLife' component={Social}/>
-                  <Route path='/form' component={RegisterForm}/>
-
-                </Security>
             </Col>
           </Row>
         </Container>

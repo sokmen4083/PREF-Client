@@ -54,13 +54,10 @@ input,select{
   font-size: 80px;
   color: rgb(145, 106, 182);
 }
-#profile{
-    width: 800px;
-    height: 500px;
-    padding: 20px;
-    background-color: yellowgreen;
-    position: relative;
-    margin: auto;
+table{
+    text-align: center;
+    border-style: double;
+    background-color:rgb(145, 201, 201);
 }
 #files{
     width: 900px;

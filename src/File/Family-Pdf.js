@@ -22,10 +22,10 @@ export default withOktaAuth(class FamilyPdf extends Component {
   }
   async componentDidMount() {
     const fileInfo = await this.checkFiles();
-    fetch('http://localhost:5501/files/files/'+fileInfo.files).then(function(response) {
+    fetch('http://localhost:5501/files/'+fileInfo.files).then(function(response) {
 		  return response.json();
 	  }).then((data) => {
-      this.setState({files: data[0]});
+      this.setState({files: data[5]});
     });
   }
   

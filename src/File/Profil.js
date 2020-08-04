@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {withOktaAuth} from '@okta/okta-react';
+import { Table } from 'react-bootstrap';
+
 
 
 
@@ -49,14 +51,45 @@ export default withOktaAuth(class Profil extends Component {
 
   render() {
     return (
-        <div id="profile">
-          <h1>YOUR PROFILE</h1>
-          <p>Your Name    :{this.state.user.firstName}</p>
-          <p>Your Surname :{this.state.user.lastName}</p>
-          <p>Your Mail    :{this.state.user.email}</p>
-          <p>Your Birthday:{this.state.user.birthday}</p>
-          <p>Your Country :{this.state.user.country}</p>
-          <p>Your Canton :{this.state.user.canton}</p>
+        <div>
+          <Table striped bordered hover>
+  <thead>
+    <tr>
+      <th colspan="2" id="profil">YOUR PROFILE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>First Name</td>
+      <td>{this.state.user.firstName}</td>
+      
+    </tr>
+    <tr>
+      <td>Last Name</td>
+      <td>{this.state.user.lastName}</td>
+      
+    </tr>
+    <tr>
+      <td>Mail</td>
+      <td >{this.state.user.email}</td>
+    </tr>
+
+    <tr>
+      <td>Birthday</td>
+      <td >{this.state.user.birthday}</td>
+    </tr>
+
+    <tr>
+      <td>Country</td>
+      <td >{this.state.user.country}</td>
+    </tr>
+
+    <tr>
+      <td>Canton</td>
+      <td >{this.state.user.canton}</td>
+    </tr>
+  </tbody>
+</Table>
           <p><input type="button" value="EDIT" id="edit" onClick={this.edit}/></p>
           <p><input type="button" value="Go to YOUR DOCUMENTS" id="document" onClick={this.goToYourDocuments}/></p>
       </div>

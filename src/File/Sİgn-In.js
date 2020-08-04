@@ -7,7 +7,6 @@ export class SıgnIn extends Component {
 		super(props);
 		this.sendProfileInfo = this.sendProfileInfo.bind(this);
 		this.handleInputChange = this.handleInputChange.bind(this);
-		this.handleSelectChange = this.handleSelectChange.bind(this);
 		this.state = {user:{}};
 	}
 

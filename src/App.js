@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dashboard } from './Dashboard/Dashboard';
+import { default as Dashboard } from './Dashboard/Dashboard';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { LoginCallback, SecureRoute, Security } from '@okta/okta-react';
@@ -7,7 +7,7 @@ import { default as Profil } from './File/Profil';
 import { Family } from './File/FamilyUnion';
 import { default as FamilyPdf } from './File/Family-Pdf';
 import { Official } from './File/OfficialDocument';
-import { RegisterForm } from './File/Form';
+import { RegisterForm } from './File/RegisterForm';
 import { Home } from './Dashboard/Home';
 import { About } from './Dashboard/About';
 import { Contact } from './Dashboard/Contact';
@@ -97,7 +97,7 @@ function App() {
                     <Route path='/protected/Job' component={Jobs}/>
                     <Route path='/protected/Course' component={Course}/>
                     <Route path='/protected/SocialLife' component={Social}/>
-                    <Route path='/protected/form' component={RegisterForm}/>
+                    <Route path='/protected/register' component={RegisterForm}/>
                   </Security>
                   
                   <Route path='/' exact={true} component={Home}/>

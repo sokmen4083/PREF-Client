@@ -15,6 +15,27 @@ code {
     monospace;
 }
 
+.card{
+  min-height: 350px;
+}
+
+.card img{
+  float: left;
+  margin: 3px;
+}
+
+.card-text{
+  margin-top: 15px;
+  float: left;
+}
+
+.card .btn-primary{
+  position: absolute;
+  bottom : 2%;
+  left: 2%;
+  width: 96%
+}
+
 #registration{
     width: 600px;
     height: 450px;

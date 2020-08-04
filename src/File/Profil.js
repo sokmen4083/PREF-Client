@@ -34,9 +34,7 @@ export default withOktaAuth(class Profil extends Component {
     let profilData = this.state.user;
 	  fetch('http://localhost:5501/users/profile',{
       method: 'post',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+      headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(profilData)
 	  }).then(function(response) {
 		  return response.json();

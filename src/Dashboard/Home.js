@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { Jumbotron, Button, Card, Container, Row, Col} from 'react-bootstrap';
+import { Jumbotron, Card, Container, Row, Col} from 'react-bootstrap';
 import document from './document.png'
 import job from './job.png'
 import course from './course.png'
 import social from './social.png'
+
+import { Link } from 'react-router-dom';
 
 export class Home extends Component {
    
@@ -29,66 +31,63 @@ export class Home extends Component {
 
         <Container>
           <Row>
+
             <Col>
-            
-              <Card style={{ width: '18rem' }}>
-              <img src={document} width="60" height="40" className="d-inline-block align-top" alt=""/>
+              <Card>
                 <Card.Body>
+                  <img src={document} width="60" height="40" className="d-inline-block align-top" alt=""/>
                   <Card.Title>Official Documents</Card.Title>
                   <Card.Text>
                     In this section, you can easily access the documents you need. 
                     Family reunification, file combination, canton change, camp change ..
                   </Card.Text>
-                  <Button variant="primary" href="/protected/OfficialDocument">Go to Official Document</Button>
+                  <Link to="/protected/OfficialDocument">Go to Official Document</Link>
                 </Card.Body>
               </Card>
-            
             </Col>
-            <Col>
 
-              <Card style={{ width: '18rem' }}>
-              <img src={job} width="60" height="40" className="d-inline-block align-top" alt=""/>
+            <Col>
+              <Card>
                   <Card.Body>
+                    <img src={job} width="60" height="40" className="d-inline-block align-top" alt=""/>
                     <Card.Title>Jobs</Card.Title>
                     <Card.Text>
                       In this section, you can easily find suitable job opportunities..
                       You can find out which business areas you need in your canton
                     </Card.Text>
-                    <Button variant="primary" href="/protected/Job">Go to Jobs</Button>
+                    <Link to="/protected/Job">Go to Jobs</Link>
                   </Card.Body>
-                </Card>            
-            
+                </Card>
             </Col>
-            <Col>
 
-              <Card style={{ width: '18rem' }}>
-              <img src={course} width="60" height="40" className="d-inline-block align-top" alt=""/>
+            <Col>
+              <Card>
                 <Card.Body>
+                  <img src={course} width="60" height="40" className="d-inline-block align-top" alt=""/>
                   <Card.Title>Courses</Card.Title>
                   <Card.Text>
                     In this section, you can easily find the list and 
                     popular ranking of the courses in your cantons.
                   </Card.Text>
-                  <Button variant="primary" href="/protected/Course">Go to Courses</Button>
+                  <Link to="/protected/Course">Go to Courses</Link>
                 </Card.Body>
               </Card>
-            
             </Col>
-            <Col>
 
-              <Card style={{ width: '18rem' }}>
-              <img src={social} width="60" height="40" className="d-inline-block align-top" alt=""/>
+            <Col>
+              <Card>
                 <Card.Body>
+                  <img src={social} width="60" height="40" className="d-inline-block align-top" alt=""/>
                   <Card.Title>Social Life</Card.Title>
                   <Card.Text>
                     In this section, you can get information about social life in Switzerland.
                     Places to visit, transportation facilities, Swiss History ...
                   </Card.Text>
-                  <Button variant="primary" href="/protected/SocialLife">Go to Social Life</Button>
+                  <Link to="/protected/SocialLife">Go to Social Life</Link>
                 </Card.Body>
               </Card>
-            
             </Col>
+
           </Row>
         </Container>
       </Jumbotron>

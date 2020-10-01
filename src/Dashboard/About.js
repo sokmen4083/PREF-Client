@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Jumbotron, Button, Card, Container, Row, Col } from 'react-bootstrap';
-import about from './about.svg'
+import about from './hiCoders-Vector25.png'
 
 
 

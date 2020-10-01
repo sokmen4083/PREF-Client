@@ -22,7 +22,7 @@ render() {
       to meet the needs of refugees on the online platform.
       </p>
       <p>
-      Many thanks to "Hi; Coders" for their support in the construction of this project.
+      Many thanks to "Hi/Coders" for their support in the construction of this project.
       </p>
 
       <Container>
@@ -32,11 +32,13 @@ render() {
             <Card style={{ width: '18rem' }}>
             <img src={about} width="60" height="40" className="d-inline-block align-top" alt=""/>
               <Card.Body>
-                <Card.Title>Hi;Coders</Card.Title>
+                <Card.Title>Hi/Coders</Card.Title>
                 <Card.Text>
-                  Hi;Coders
+                We are a small group of software engineers and software architects
+                who strive to offer added value in the region in which Hi / Coders 
+                is currently active, namely the Zurich Oberland.
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button variant="primary" href="https://hicoders.ch/">Go to Hi/Coders</Button>
               </Card.Body>
             </Card>
           

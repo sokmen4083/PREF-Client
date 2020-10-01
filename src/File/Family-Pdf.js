@@ -20,12 +20,6 @@ export default withOktaAuth(class FamilyPdf extends Component {
     this.state = {files:{}};
   }
 
-  async componentDidMount() {
-    const oktaUser = await this.checkUser();
-    let fileContent = await UserService.loadUserFile(oktaUser.email);
-    this.setState({fileContent});
-  }
-  
   sendToPrint(){
 	  return window.print();
   }
@@ -41,7 +35,13 @@ export default withOktaAuth(class FamilyPdf extends Component {
         pdf.save("download.pdf");
       })
     ;   
-  }   
+  }
+
+  async componentDidMount() {
+    const oktaUser = await this.checkUser();
+    let fileContent = await UserService.loadUserFile(oktaUser.email);
+    this.setState({fileContent});
+  }  
   
   render() {
     return (

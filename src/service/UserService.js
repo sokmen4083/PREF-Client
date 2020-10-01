@@ -12,7 +12,7 @@ class UserService{
         window.localStorage.setItem("user", JSON.stringify(pUser));
     }
 
-    static async loadUseFile(pEmail){
+    static async loadUserFile(pEmail){
         let userFile = await fetch(`${config.backendUrl}/users/${pEmail}/file`)
         try{
             return await userFile.json();

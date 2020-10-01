@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Jumbotron, Button,} from 'react-bootstrap';
+import { Jumbotron, Button, Form} from 'react-bootstrap';
 
 
 export class FileCombination extends Component {
@@ -14,24 +14,70 @@ export class FileCombination extends Component {
           in another country in Europe can be found here.
         </p>
         
-        <div id="file-combination">
-          <p>FAMILY MEMBERS : <input type="number" placeholder="please enter your family members"></input></p>
-          <div id="wife">
-          <p>YOUR WIFE'S NAME : <input type="text" placeholder="please enter your wife's name"></input></p>
-          <p>YOUR WIFE'S BIRTHDAY : <input type="DATE" placeholder="please enter your wife's birthday"></input></p>
-          </div>
-          <div id="children">
-          <p>YOUR FIRST CHILD'S NAME : <input type="text" placeholder="please enter your first child's name"></input></p>
-          <p>YOUR FIRST CHILD'S BIRTHDAY : <input type="DATE" placeholder="please enter your first child's birthday"></input></p>
-          <p>YOUR SECOND CHILD'S NAME : <input type="text" placeholder="please enter your second child's name"></input></p>
-          <p>YOUR SECOND CHILD'S BIRTHDAY : <input type="DATE" placeholder="please enter your second child's birthday"></input></p>
-          <p>YOUR THIRD CHILD'S NAME : <input type="text" placeholder="please enter your third child's name"></input></p>
-          <p>YOUR THIRD CHILD'S BIRTHDAY : <input type="DATE" placeholder="please enter your third child's birthday"></input></p>
-          </div>
-          <div>
-          <Button variant="primary" href="/Family-Pdf" id="submit">SUBMIT</Button>
-          </div>
-      </div> 
+        <Form>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Family Members</Form.Label>
+            <Form.Label>Please enter your family members</Form.Label>
+          </Form.Group>
+
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Your Wife's Name</Form.Label>
+            <Form.Control type="text" placeholder="please enter your wife's name" name="wifesName"  onChange={this.handleInputChange}/>
+          </Form.Group>
+
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Your Wife's Birthday</Form.Label>
+            <Form.Control type="date" name="wifesBirthday" onChange={this.handleInputChange} />
+          </Form.Group>
+          
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Your First Child's Name</Form.Label>
+            <Form.Control type="text" placeholder="please enter your first child's name" name="firstChildName" onChange={this.handleInputChange} />
+          </Form.Group>
+
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Your First Child's Birthday</Form.Label>
+            <Form.Control type="date" name="firstChildBirthday" onChange={this.handleInputChange}/>
+          </Form.Group>
+
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Your Second Child's Name</Form.Label>
+            <Form.Control type="text" placeholder="please enter your second child's name" name="secondChildName" onChange={this.handleInputChange}/>
+          </Form.Group>
+
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Your Second Child's Birthday</Form.Label>
+            <Form.Control type="date" name="secondChildBirthday" onChange={this.handleInputChange}/>
+          </Form.Group>
+
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Your Third Child's Name</Form.Label>
+            <Form.Control type="text" placeholder="please enter your third child's name" name="thirdChildName" onChange={this.handleInputChange}/>
+          </Form.Group>
+
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Your Third Child's Birthday</Form.Label>
+            <Form.Control type="date" name="thirdChildBirthday" onChange={this.handleInputChange}/>
+          </Form.Group>
+
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Your Fourth Child's Name</Form.Label>
+            <Form.Control type="text" placeholder="please enter your forth child's name" name="forthChildName" onChange={this.handleInputChange}/>
+          </Form.Group>
+
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Your Fourth Child's Birthday</Form.Label>
+            <Form.Control type="date" name="forthChildBirthday" onChange={this.handleInputChange}/>
+          </Form.Group>
+
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Your Adress In Your Country</Form.Label>
+            <Form.Control type="text" placeholder="please enter your adress in your country" name="adress" onChange={this.handleInputChange}/>
+          </Form.Group>
+          <Button variant="primary" type="submit" href="Family-Pdf" onClick={this.sendFilesInfo}>
+            Submit
+          </Button>
+        </Form> 
       </Jumbotron>   
     );
   }

@@ -30,7 +30,7 @@ render() {
           <Col>
           
             <Card style={{ width: '18rem' }}>
-            <img src={about} width="60" height="40" className="d-inline-block align-top" alt=""/>
+            <img src={about} width="150" height="30" className="d-inline-block align-top" alt=""/>
               <Card.Body>
                 <Card.Title>Hi/Coders</Card.Title>
                 <Card.Text>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {withOktaAuth} from '@okta/okta-react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
@@ -11,7 +10,7 @@ async function checkUser() {
   return user;
 }
 
-export default withOktaAuth(class FamilyPdf extends Component {
+export class FamilyPdf extends Component {
   constructor(props) {
 		super(props);
     this.sendToPrint = this.sendToPrint.bind(this);
@@ -102,10 +101,10 @@ export default withOktaAuth(class FamilyPdf extends Component {
             </div>
 
             <div>
-                <p><input type="button" value="PRINT" id="print" onClick="{this.sendToPrint}" /></p>
-                <p><input type="button" value="Download PDF" onClick="{this.generatePDF}" /></p>
+                <p><input type="button" value="PRINT" id="print" onClick={this.sendToPrint} /></p>
+                <p><input type="button" value="Download PDF" onClick={this.generatePDF} /></p>
             </div>
         </div>
     );
   }
-})
+}

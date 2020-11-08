@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Jumbotron, Button, Form} from 'react-bootstrap';
-import familyImage from './family.svg'
 
 import FileService from '../service/FileService';
 import UserService from '../service/UserService';
@@ -38,7 +37,6 @@ export class Family extends Component
   render() {
     return (
       <Jumbotron>
-        <img src={familyImage} width="120" height="80" className="d-inline-block align-top" alt=""/>
         <h1>Family Union</h1>
         <p>
          The document needed for a person who has been living in Switzerland 

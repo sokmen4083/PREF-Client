@@ -3,6 +3,7 @@ import { Jumbotron, Button, Form, Row, Col} from 'react-bootstrap';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
+
 import FileService from '../service/FileService';
 import UserService from '../service/UserService';
 
@@ -17,13 +18,16 @@ export class Family extends Component
       this.state = {
         username: '',
         usersurname: '',
+        userid: Number,
         userbirthday: Date,
         userstreetname: '',
         userhomenumber: Number,
         userpostcode: Number,
         userplace: '',
+        usercanton: '',
         userdateofcametoswitzerland: Date,
         userdateofsubstitution: Date,
+        usercountry: '',
         useradressincountry: '',
         userwifesname: '',
         userwifessurname:'',
@@ -56,7 +60,7 @@ export class Family extends Component
       .then((canvas) => {
         const imgData = canvas.toDataURL('image/png');
         const pdf = new jsPDF();
-        pdf.addImage(imgData, 'JPEG', 0, 0);
+        pdf.addImage(imgData, 'JPEG', 0, 0 ,"A4");
         // pdf.output('dataurlnewwindow');
         pdf.save("download.pdf");
       })
@@ -97,6 +101,11 @@ export class Family extends Component
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
+            <Form.Label>Your Id Number</Form.Label>
+            <Form.Control type="number" placeholder="please enter your Id-Number" name="userid"  onChange={this.myChangeHandler}/>
+          </Form.Group>
+
+          <Form.Group controlId="formBasicEmail">
             <Form.Label>Your Birthday</Form.Label>
             <Form.Control type="date" name="userbirthday" onChange={this.myChangeHandler} />
           </Form.Group>
@@ -117,6 +126,11 @@ export class Family extends Component
               </Form.Label>
             </Form.Group>
 
+            <Form.Group controlId="formBasicEmail">
+            <Form.Label>Your Kanton</Form.Label>
+            <Form.Control type="text" name="usercanton"  onChange={this.myChangeHandler}/>
+          </Form.Group>
+
           <Form.Group controlId="formBasicEmail">
             <Form.Label>The Date You Came To Switzerland</Form.Label>
             <Form.Control type="date" name="userdateofcametoswitzerland"  onChange={this.myChangeHandler}/>
@@ -125,6 +139,11 @@ export class Family extends Component
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Date Of Substitution</Form.Label>
             <Form.Control type="date" placeholder="please enter your wife's name" name="userdateofsubstitution"  onChange={this.myChangeHandler}/>
+          </Form.Group>
+
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Your Country</Form.Label>
+            <Form.Control type="text" name="usercountry"  onChange={this.myChangeHandler}/>
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
@@ -201,18 +220,18 @@ export class Family extends Component
         <div id="family-pdf">
             <div >
                 <div id="user-information">
-                    <p id="user-name">{this.state.username}  {this.state.usersurname}............</p>
-                    <p id="user-Id">..............................</p>
-                       <p id="user-adress"> {this.state.userstreetname}, {this.state.userhomenumber} , 
-                                        {this.state.userpostcode}, {this.state.userplace}
+                    <p id="user-name">{this.state.username}  {this.state.usersurname}</p>
+                    <p id="user-Id">{this.state.userid} </p>
+                       <p id="user-adress"> {this.state.userstreetname} {this.state.userhomenumber}  
+                                        {this.state.userpostcode} {this.state.userplace}
                        </p>
                 </div>
 
                 <div id="sem-adres">Einschreiben Staatssekretariat für Migration Quellenweg 6 3003 Bern-Wabern</div>
 
-                <div id="user-place">..........</div>
+                <div id="user-place">{this.state.userplace} </div>
                 ,den
-                <div id="user-date">...............</div>
+                <div id="user-date">{Date} </div>
 
                 <p>
                     Gesuch um Familienasyl im Sinne des Art. 51 AsylG für die Ehefrau   
@@ -232,16 +251,16 @@ export class Family extends Component
 
                 <p>
                     Am <span id="user-comeDate">{this.state.userdateofcametoswitzerland} </span> habe ich in der Schweiz einen Asylantrag gestellt.
-                    Schliesslich wurde ich am <span id="user-asylDate">...............</span> als Flüchtling anerkannt.
-                    Danach wurde ich dem Kanton <span id="user-canton">..........</span> zugeteilt, wo ich zurzeit
-                    wohnhaft bin. Jedoch ist meine Familie noch in der <span id="user-country">............</span> und
+                    Schliesslich wurde ich am <span id="user-asylDate">{this.state.userdateofsubstitution} </span> als Flüchtling anerkannt.
+                    Danach wurde ich dem Kanton <span id="user-canton">{this.state.usercanton} </span> zugeteilt, wo ich zurzeit
+                    wohnhaft bin. Jedoch ist meine Familie noch in der <span id="user-country">{this.state.usercountry} </span> und
                     sie ist in grosser Gefahr. Denn es wird nicht lange dauern bis die
-                    <span id="user-country">...........</span> Regierung meinen Aufenthalt in der Schweiz ausfindig
+                    <span id="user-country">{this.state.usercountry}</span> Regierung meinen Aufenthalt in der Schweiz ausfindig
                     macht. In diesem Fall würde man wahrscheinlich meiner Familie eine Ausreisesperre anordnen. Ähnliche
                     Fälle sind sicherlich auch Ihnen bekannt.
                 </p>
 
-                <p><span id="user-country">.............</span> Adresse: {this.state.useradressincountry}
+                <p><span id="user-country">{this.state.usercountry}</span> Adresse: {this.state.useradressincountry}
               </p>
                 <p>adress</p>
 

@@ -11,9 +11,11 @@ export class Family extends Component
 
   constructor(props) {
       super(props);
+      var today = new Date(),
+            date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
       this.myChangeHandler = this.myChangeHandler.bind(this);
-      this.date = this.date.bind(this);
       this.state = {
+        date: date,
         username: '',
         usersurname: '',
         userid: Number,
@@ -39,10 +41,7 @@ export class Family extends Component
       };
   }
 
-  date(){
-    let date = new Date();
-    document.getElementById("today").innerHTML=  date.getDate();
-  }
+  
   
 
   sendToPrint(){
@@ -62,7 +61,7 @@ export class Family extends Component
       .then((canvas) => {
         const imgData = canvas.toDataURL('image/png');
         const pdf = new jsPDF();
-        pdf.addImage(imgData, 'JPEG', 0, 0);
+        pdf.addImage(imgData, 'JPEG', 0, 0,);
         // pdf.output('dataurlnewwindow');
         pdf.save("download.pdf");
       })
@@ -188,40 +187,11 @@ export class Family extends Component
             <Form.Control type="date" name="userfirstchildbirthday" onChange={this.myChangeHandler}/>
           </Form.Group>
 
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Your Second Child's Name</Form.Label>
-            <Form.Control type="text" placeholder="please enter your second child's name" name="usersecondchildname" onChange={this.myChangeHandler}/>
-          </Form.Group>
-
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Your Second Child's Birthday</Form.Label>
-            <Form.Control type="date" name="usersecondchildbirthday" onChange={this.myChangeHandler}/>
-          </Form.Group>
-
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Your Third Child's Name</Form.Label>
-            <Form.Control type="text" placeholder="please enter your third child's name" name="thirdChildName" onChange={this.myChangeHandler}/>
-          </Form.Group>
-
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Your Third Child's Birthday</Form.Label>
-            <Form.Control type="date" name="thirdChildBirthday" onChange={this.myChangeHandler}/>
-          </Form.Group>
-
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Your Fourth Child's Name</Form.Label>
-            <Form.Control type="text" placeholder="please enter your forth child's name" name="forthChildName" onChange={this.myChangeHandler}/>
-          </Form.Group>
-
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Your Fourth Child's Birthday</Form.Label>
-            <Form.Control type="date" name="forthChildBirthday" onChange={this.myChangeHandler}/>
-          </Form.Group>
         </Form>
         </Col>
         <Col>
         <div id="family-pdf">
-            <div >
+            
                 <div id="user-information">
                     <p id="user-name">{this.state.username}  {this.state.usersurname}</p>
                     <p id="user-Id"> (N {this.state.userid} , Pers.-Nr.{this.state.userbid} ) </p>
@@ -229,44 +199,53 @@ export class Family extends Component
                                         {this.state.userpostcode} {this.state.userplace}
                        </p>
                 </div>
-
-                <div id="sem-adres">Einschreiben Staatssekretariat für Migration Quellenweg 6 3003 Bern-Wabern
-
-    <div id="user-place">{this.state.userplace} ,den <span id="today">{this.date}</span></div>
+                <br></br> 
+                <br></br> 
                 
-                </div>
+                <div id="sem-adres">
+                  <div>Einschreiben </div>
+                <div>Staatssekretariat für Migration</div>
+                <div>Quellenweg 6 </div>
+                 3003 Bern-Wabern
+                 <div id="user-place">{this.state.userplace} ,den <span id="today">{this.state.date}</span></div>
+                 </div>
 
-                <p>
-                    Gesuch um Familienasyl im Sinne des Art. 51 AsylG für die Ehefrau   
-                    {this.state.userwifesname}, {this.state.userwifessurname}
-                    geboren am {this.state.userwifesbirthday}, für den Sohn, {this.state.userfirstchildname},
+                
+
+               <br></br> 
+               <br></br> 
+               <br></br> 
+               <br></br> 
+               <br></br> 
+               <br></br> 
+               <div>
+                  <p>
+                    Gesuch um Familienasyl im Sinne des Art. 51 AsylG für die Ehefrau    
+                     <span> {this.state.userwifesname} {this.state.userwifessurname} </span>   
+                    geboren am <span> {this.state.userwifesbirthday} </span>, für die Tochter, <span> {this.state.userfirstchildname} </span>,
                     geboren am {this.state.userfirstchildbirthday}, für die
-                    Tochter,{this.state.usersecondchildsname}, geboren am {this.state.usersecondchildbirthday}, für
-                    die Tochter, thirdChildName, geboren am thirdChildBirthday,
-                    und für den Sohn forthChildName, geboren am
-                    forthChildBirthday, alle türkische Staatsangehörige
-                    <span id="user-name">{this.state.username}</span>, geboren am
-                    <span id="user-birthday">{this.state.userbirthday} </span>, anerkannter Flüchtling, 
+                    alle türkische Staatsangehörige
+                    <span id="user-name"> {this.state.username} </span>, geboren am
+                    <span id="user-birthday"> {this.state.userbirthday} </span>, anerkannter Flüchtling, 
                     türkischer Staatsangehöriger
-                </p>
+                  </p>
+                
 
                 <p>Sehr geehrte Damen und Herren</p>
 
                 <p>
-                    Am <span id="user-comeDate">{this.state.userdateofcametoswitzerland} </span> habe ich in der Schweiz einen Asylantrag gestellt.
-                    Schliesslich wurde ich am <span id="user-asylDate">{this.state.userdateofsubstitution} </span> als Flüchtling anerkannt.
-                    Danach wurde ich dem Kanton <span id="user-canton">{this.state.usercanton} </span> zugeteilt, wo ich zurzeit
-                    wohnhaft bin. Jedoch ist meine Familie noch in der <span id="user-country">{this.state.usercountry} </span> und
+                    Am <span id="user-comeDate"> {this.state.userdateofcametoswitzerland} </span> habe ich in der Schweiz einen Asylantrag gestellt.
+                    Schliesslich wurde ich am <span id="user-asylDate"> {this.state.userdateofsubstitution} </span> als Flüchtling anerkannt.
+                    Danach wurde ich dem Kanton <span id="user-canton"> {this.state.usercanton} </span> zugeteilt, wo ich zurzeit
+                    wohnhaft bin. Jedoch ist meine Familie noch in der <span id="user-country"> {this.state.usercountry} </span> und
                     sie ist in grosser Gefahr. Denn es wird nicht lange dauern bis die
-                    <span id="user-country">{this.state.usercountry}</span> Regierung meinen Aufenthalt in der Schweiz ausfindig
+                    <span id="user-country"> {this.state.usercountry} </span> Regierung meinen Aufenthalt in der Schweiz ausfindig
                     macht. In diesem Fall würde man wahrscheinlich meiner Familie eine Ausreisesperre anordnen. Ähnliche
                     Fälle sind sicherlich auch Ihnen bekannt.
                 </p>
 
-                <p><span id="user-country">{this.state.usercountry}</span> Adresse: {this.state.useradressincountry}
+                <p><span id="user-country"> {this.state.usercountry} </span> Adresse: {this.state.useradressincountry}
               </p>
-                <p>adress</p>
-
                 <p>
                     Ich ersuche Sie deshalb, die Einreise meiner Familienangehörigen in die Schweiz im Sinne des Art. 51
                     Asyl zu genehmigen. Folgende Unterlagen lege ich diesem Brief bei :
@@ -279,8 +258,8 @@ export class Family extends Component
                     <li>Kopien der Identitätskarten</li>
                     <li>Kopien der Reisepässe</li>
                 </ul>
+                </div>
             </div>
-        </div>
         <div>
                 <p><input type="button" value="PRINT" id="print" onClick={this.sendToPrint} /></p>
                 <p><input type="button" value="Download PDF" onClick={this.generatePDF} /></p>

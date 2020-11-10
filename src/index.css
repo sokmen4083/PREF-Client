@@ -36,97 +36,12 @@ code {
   width: 96%
 }
 
-#registration{
-    width: 600px;
-    height: 450px;
-    padding: 20px;
-    background-color: rgb(181, 207, 218);
-    position: relative;
-    margin: auto;
-}
-#sign-in{
-  width: 500px;
-  height: 200px;
-  padding: 20px;
-  background-color: rgb(56, 194, 253);
-  position: relative;
-  margin: auto;
-}
-input,select{
-  font-size: 20px;
-}
-#submit{
-  position: absolute;
-  right: 5px;
-  background-color:#2bc7db;
-  width: 100px;
-  height: 35px;
-}
-#Sign-On{
-  position: absolute;
-  right: 5px;
-  top: 50px;
-  background-color:#b0e0e6;
-  width: 100px;
-  height: 35px;
-}
-#welcome{
-  text-align: center;
-  font-size: 80px;
-  color: rgb(145, 106, 182);
-}
-table{
-    text-align: center;
-    border-style: double;
-    background-color:rgb(145, 201, 201);
-}
-#files{
-    width: 900px;
-    height: 400px;
-    padding: 20px;
-    background-color:rgb(189, 74, 74);
-    position: relative;
-    margin: auto;
+div #sem-adres{
+  float: right;
 }
 
-#document,#course,#job,#social{
-  border-style: groove;
-  border-width: 20px;
-  background-color:green;
-}
-
-#family-union,#file-combination{
-  width: 900px;
-  height: 500px;
-  padding: 20px;
-  background-color:yellow;
-  position: relative;
-  margin: auto;
-}
 #family-pdf{
-  background-color: #f5f5f5;
-  width: 1900px;
-  height: 1040px;
-  margin-left:  10px;
-  margin-right: 10px;
-  size: "A4";
-  
-}
-#family-union input,#file-combination input{ 
-  width: 400px;
+  border-style: groove;
 }
 
-#edit{
-  position: absolute;
-  right: 150px;
-}
-#official{
-  width: 700px;
-  height: 400px;
-  padding: 20px;
-  background-color:yellow;
-  position: relative;
-  margin: auto;
-  text-align: center;
-}
 

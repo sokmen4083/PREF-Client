@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { Jumbotron, Button, Form, Row, Col} from 'react-bootstrap';
+import { Jumbotron, Form, Row, Col} from 'react-bootstrap';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
 
-import FileService from '../service/FileService';
-import UserService from '../service/UserService';
 
 
 export class Family extends Component 
@@ -13,12 +11,13 @@ export class Family extends Component
 
   constructor(props) {
       super(props);
-      this.sendFilesInfo = this.sendFilesInfo.bind(this);
       this.myChangeHandler = this.myChangeHandler.bind(this);
+      this.date = this.date.bind(this);
       this.state = {
         username: '',
         usersurname: '',
         userid: Number,
+        userbid: Number,
         userbirthday: Date,
         userstreetname: '',
         userhomenumber: Number,
@@ -40,18 +39,21 @@ export class Family extends Component
       };
   }
 
-  async sendFilesInfo()
-  {
-    let familyData = this.state.family;
-    let user = UserService.getCurrentUser();
-    familyData.userId = user.id;
-
-    await FileService.saveFamilyInfo(JSON.stringify(familyData));
-    window.location.href = "/Family-Pdf" 
+  date(){
+    let date = new Date();
+    document.getElementById("today").innerHTML=  date.getDate();
   }
+  
 
   sendToPrint(){
-	  return window.print();
+      var divContents = document.getElementById("family-pdf").innerHTML; 
+      var a = window.open('', '', 'height=500, width=500'); 
+      a.document.write('<html>'); 
+      a.document.write('<body > <h1> <br>'); 
+      a.document.write(divContents); 
+      a.document.write('</body></html>'); 
+      a.document.close(); 
+      a.print(); 
   }
 
   generatePDF(){ 
@@ -60,7 +62,7 @@ export class Family extends Component
       .then((canvas) => {
         const imgData = canvas.toDataURL('image/png');
         const pdf = new jsPDF();
-        pdf.addImage(imgData, 'JPEG', 0, 0 ,"A4");
+        pdf.addImage(imgData, 'JPEG', 0, 0);
         // pdf.output('dataurlnewwindow');
         pdf.save("download.pdf");
       })
@@ -101,8 +103,13 @@ export class Family extends Component
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Your Id Number</Form.Label>
+            <Form.Label>Your N-Id Number</Form.Label>
             <Form.Control type="number" placeholder="please enter your Id-Number" name="userid"  onChange={this.myChangeHandler}/>
+          </Form.Group>
+
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Your B-Id Number</Form.Label>
+            <Form.Control type="number" placeholder="please enter your Id-Number" name="userbid"  onChange={this.myChangeHandler}/>
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
@@ -210,10 +217,6 @@ export class Family extends Component
             <Form.Label>Your Fourth Child's Birthday</Form.Label>
             <Form.Control type="date" name="forthChildBirthday" onChange={this.myChangeHandler}/>
           </Form.Group>
-
-          <Button variant="primary" type="submit" href="Family-Pdf" onClick={this.sendFilesInfo}>
-            Submit
-          </Button>
         </Form>
         </Col>
         <Col>
@@ -221,17 +224,17 @@ export class Family extends Component
             <div >
                 <div id="user-information">
                     <p id="user-name">{this.state.username}  {this.state.usersurname}</p>
-                    <p id="user-Id">{this.state.userid} </p>
-                       <p id="user-adress"> {this.state.userstreetname} {this.state.userhomenumber}  
+                    <p id="user-Id"> (N {this.state.userid} , Pers.-Nr.{this.state.userbid} ) </p>
+                       <p id="user-adress"> {this.state.userstreetname} {this.state.userhomenumber}  , 
                                         {this.state.userpostcode} {this.state.userplace}
                        </p>
                 </div>
 
-                <div id="sem-adres">Einschreiben Staatssekretariat für Migration Quellenweg 6 3003 Bern-Wabern</div>
+                <div id="sem-adres">Einschreiben Staatssekretariat für Migration Quellenweg 6 3003 Bern-Wabern
 
-                <div id="user-place">{this.state.userplace} </div>
-                ,den
-                <div id="user-date">{Date} </div>
+    <div id="user-place">{this.state.userplace} ,den <span id="today">{this.date}</span></div>
+                
+                </div>
 
                 <p>
                     Gesuch um Familienasyl im Sinne des Art. 51 AsylG für die Ehefrau   

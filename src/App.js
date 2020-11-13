@@ -26,7 +26,7 @@ function App() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="mr-auto">
-                      <Nav.Link><Link to="/home">Home</Link></Nav.Link>
+                      <Nav.Link><Link to="/home">PREF DOCUMENTS</Link></Nav.Link>
                   </Nav>
                 </Navbar.Collapse>
             </Navbar>

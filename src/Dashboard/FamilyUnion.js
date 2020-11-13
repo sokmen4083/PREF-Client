@@ -193,10 +193,10 @@ export class Family extends Component
         <div id="family-pdf">
             
                 <div id="user-information">
-                    <p id="user-name">{this.state.username}  {this.state.usersurname}</p>
-                    <p id="user-Id"> (N {this.state.userid} , Pers.-Nr.{this.state.userbid} ) </p>
-                       <p id="user-adress"> {this.state.userstreetname} {this.state.userhomenumber}  , 
-                                        {this.state.userpostcode} {this.state.userplace}
+                    <p id="user-name">{this.state.username !== ""? this.state.username:"........"}  {this.state.usersurname !== ""? this.state.usersurname:"........"}</p>
+                    <p id="user-Id"> (N {this.state.userid !== ""? this.state.userid:"........"} , Pers.-Nr.{this.state.userbid !== ""? this.state.userbid:"........"} ) </p>
+                       <p id="user-adress"> {this.state.userstreetname !== ""? this.state.userstreetname:"........"} {this.state.userhomenumber !== ""? this.state.userhomenumber:"........"}  , 
+                                        {this.state.userpostcode !== ""? this.state.userpostcode:"........"} {this.state.userplace !== ""? this.state.userplace:"........"}
                        </p>
                 </div>
                 <br></br> 
@@ -207,7 +207,7 @@ export class Family extends Component
                 <div>Staatssekretariat für Migration</div>
                 <div>Quellenweg 6 </div>
                  3003 Bern-Wabern
-                 <div id="user-place">{this.state.userplace} ,den <span id="today">{this.state.date}</span></div>
+                 <div id="user-place">{this.state.userplace !== ""? this.state.userplace:"........"} ,den <span id="today">{this.state.date}</span></div>
                  </div>
 
                 
@@ -221,12 +221,12 @@ export class Family extends Component
                <div>
                   <p>
                     Gesuch um Familienasyl im Sinne des Art. 51 AsylG für die Ehefrau    
-                     <span> {this.state.userwifesname} {this.state.userwifessurname} </span>   
-                    geboren am <span> {this.state.userwifesbirthday} </span>, für die Tochter, <span> {this.state.userfirstchildname} </span>,
-                    geboren am {this.state.userfirstchildbirthday}, für die
+                     <span> {this.state.userwifesname !== ""? this.state.userwifesname:"........"} {this.state.userwifessurname !== ""? this.state.userwifessurname:"........"} </span>   
+                    geboren am <span> {this.state.userwifesbirthday !== ""? this.state.userwifesbirthday:"........"} </span>, für die Tochter, <span> {this.state.userfirstchildname !== ""? this.state.userfirstchildname:"........"} </span>,
+                    geboren am {this.state.userfirstchildbirthday !== ""? this.state.userfirstchildbirthday:"........"}, für die
                     alle türkische Staatsangehörige
-                    <span id="user-name"> {this.state.username} </span>, geboren am
-                    <span id="user-birthday"> {this.state.userbirthday} </span>, anerkannter Flüchtling, 
+                    <span id="user-name"> {this.state.username !== ""? this.state.username:"........"} {this.state.usersurname !== ""? this.state.usersurname:"........"} </span>, geboren am
+                    <span id="user-birthday"> {this.state.userbirthday !== ""? this.state.userbirthday:"........"} </span>, anerkannter Flüchtling, 
                     türkischer Staatsangehöriger
                   </p>
                 
@@ -234,17 +234,17 @@ export class Family extends Component
                 <p>Sehr geehrte Damen und Herren</p>
 
                 <p>
-                    Am <span id="user-comeDate"> {this.state.userdateofcametoswitzerland} </span> habe ich in der Schweiz einen Asylantrag gestellt.
-                    Schliesslich wurde ich am <span id="user-asylDate"> {this.state.userdateofsubstitution} </span> als Flüchtling anerkannt.
-                    Danach wurde ich dem Kanton <span id="user-canton"> {this.state.usercanton} </span> zugeteilt, wo ich zurzeit
-                    wohnhaft bin. Jedoch ist meine Familie noch in der <span id="user-country"> {this.state.usercountry} </span> und
+                    Am <span id="user-comeDate"> {this.state.userdateofcametoswitzerland !== ""? this.state.userdateofcametoswitzerland:"........"} </span> habe ich in der Schweiz einen Asylantrag gestellt.
+                    Schliesslich wurde ich am <span id="user-asylDate"> {this.state.userdateofsubstitution !== ""? this.state.userdateofsubstitution:"........"} </span> als Flüchtling anerkannt.
+                    Danach wurde ich dem Kanton <span id="user-canton"> {this.state.usercanton !== ""? this.state.usercanton:"........"} </span> zugeteilt, wo ich zurzeit
+                    wohnhaft bin. Jedoch ist meine Familie noch in der <span id="user-country"> {this.state.usercountry !== ""? this.state.usercountry:"........"} </span> und
                     sie ist in grosser Gefahr. Denn es wird nicht lange dauern bis die
-                    <span id="user-country"> {this.state.usercountry} </span> Regierung meinen Aufenthalt in der Schweiz ausfindig
+                    <span id="user-country"> {this.state.usercountry !== ""? this.state.usercountry:"........"} </span> Regierung meinen Aufenthalt in der Schweiz ausfindig
                     macht. In diesem Fall würde man wahrscheinlich meiner Familie eine Ausreisesperre anordnen. Ähnliche
                     Fälle sind sicherlich auch Ihnen bekannt.
                 </p>
 
-                <p><span id="user-country"> {this.state.usercountry} </span> Adresse: {this.state.useradressincountry}
+                <p><span id="user-country"> {this.state.usercountry !== ""? this.state.usercountry:"........"} </span> Adresse: {this.state.useradressincountry !== ""? this.state.useradressincountry:"........"}
               </p>
                 <p>
                     Ich ersuche Sie deshalb, die Einreise meiner Familienangehörigen in die Schweiz im Sinne des Art. 51

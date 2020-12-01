@@ -37,4 +37,16 @@
   }
 }
 
+#family-pdf{
+  border-style: groove;
+  padding: 15px;
+  background-color: white;
+}
 
+mark{
+  background-color: yellow;
+}
+
+div #sem-adres{
+  float: right;
+}

@@ -6,7 +6,7 @@ import $ from 'jquery';
 
 
 
-export class FileCombination extends Component 
+export class CantonChange extends Component 
 {
 
   constructor(props) {

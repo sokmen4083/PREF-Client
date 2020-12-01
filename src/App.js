@@ -2,12 +2,12 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Family } from './Dashboard/FamilyUnion';
-import { FamilyPdf } from './Dashboard/Family-Pdf';
-import { Home } from './Dashboard/Home';
+import { PrefDocuments } from './Dashboard/PrefDocuments';
 import logo from './logom.png';
-
 import { Container, Row, Col, Navbar, Nav } from 'react-bootstrap';
 import { FileCombination } from './Dashboard/FileCombination';
+import { CantonChange } from './Dashboard/CantonChange';
+import { CampChange } from './Dashboard/CampChange';
 
 
 
@@ -26,7 +26,7 @@ function App() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="mr-auto">
-                      <Nav.Link><Link to="/home">PREF DOCUMENTS</Link></Nav.Link>
+                      <Nav.Link><Link to="/PrefDocuments">PREF DOCUMENTS</Link></Nav.Link>
                   </Nav>
                 </Navbar.Collapse>
             </Navbar>
@@ -34,13 +34,13 @@ function App() {
           </Row>
           <Row>
             <Col>
-                    <Route path='/FamilyUnion' component={Family}/>
-                    <Route path='/Family-Pdf' component={FamilyPdf}/>
-                    
+                    <Route path='/FamilyUnion' component={Family}/>                   
                     <Route path='/fileCombination' component={FileCombination}/>
+                    <Route path='/CantonChange' component={CantonChange}/>
+                    <Route path='/CampChange' component={CampChange}/>
                   
-                  <Route path='/' exact={true} component={Home}/>
-                  <Route path='/home' component={Home}/>
+                  <Route path='/' exact={true} component={PrefDocuments}/>
+                  <Route path='/PrefDocuments' component={PrefDocuments}/>
             </Col>
           </Row>
         </Container>

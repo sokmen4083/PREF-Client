@@ -6,7 +6,7 @@ import $ from 'jquery';
 
 
 
-export class FileCombination extends Component 
+export class CampChange extends Component 
 {
 
   constructor(props) {

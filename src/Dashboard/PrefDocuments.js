@@ -7,15 +7,15 @@ import family from './family.png'
 import { Link } from 'react-router-dom';
 
 
-export class Home extends Component {
+export class PrefDocuments extends Component {
    
   render() {
     return (
       <Jumbotron>
-        <h1>Official Document</h1>
+        <h1>PETITIONS</h1>
         <p>
           In this section, you can easily access the documents you need. 
-          Family reunification, file combination, canton change, camp change ..
+          Family union, file combination, canton change, camp change ..
         </p>
 
         <Container>

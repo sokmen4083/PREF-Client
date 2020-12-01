@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Jumbotron, Form, Row, Col} from 'react-bootstrap';
-import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import $ from 'jquery';
 
 
 
@@ -55,17 +55,23 @@ export class Family extends Component
       a.print(); 
   }
 
-  generatePDF(){ 
-    const input = document.getElementById('family-pdf');
-    html2canvas(input)
-      .then((canvas) => {
-        const imgData = canvas.toDataURL('image/png');
-        const pdf = new jsPDF();
-        pdf.addImage(imgData, 'JPEG', 0, 0,);
-        // pdf.output('dataurlnewwindow');
-        pdf.save("download.pdf");
-      })
-    ;   
+  generatePDF(){  
+      var doc = new jsPDF();
+var elementHTML = $('#family-pdf').html();
+var specialElementHandlers = {
+    '#elementH': function (element, renderer) {
+        return true;
+    }
+};
+doc.fromHTML(elementHTML, 15, 15, {
+    'width': 170,
+    'elementHandlers': specialElementHandlers
+});
+
+// Save the PDF
+doc.save('My-Document.pdf');
+      
+      
   }
 
   myChangeHandler(event) {
@@ -190,83 +196,85 @@ export class Family extends Component
         </Form>
         </Col>
         <Col>
+       
         <div id="family-pdf">
             
-                <div id="user-information">
-                    <p id="user-name">{this.state.username !== ""? this.state.username:"........"}  {this.state.usersurname !== ""? this.state.usersurname:"........"}</p>
-                    <p id="user-Id"> (N {this.state.userid !== ""? this.state.userid:"........"} , Pers.-Nr.{this.state.userbid !== ""? this.state.userbid:"........"} ) </p>
-                       <p id="user-adress"> {this.state.userstreetname !== ""? this.state.userstreetname:"........"} {this.state.userhomenumber !== ""? this.state.userhomenumber:"........"}  , 
-                                        {this.state.userpostcode !== ""? this.state.userpostcode:"........"} {this.state.userplace !== ""? this.state.userplace:"........"}
-                       </p>
-                </div>
-                <br></br> 
-                <br></br> 
-                
-                <div id="sem-adres">
-                  <div>Einschreiben </div>
-                <div>Staatssekretariat für Migration</div>
-                <div>Quellenweg 6 </div>
-                 3003 Bern-Wabern
-                 <div id="user-place">{this.state.userplace !== ""? this.state.userplace:"........"} ,den <span id="today">{this.state.date}</span></div>
-                 </div>
+            <div id="user-information">
+                <p id="user-name"><mark>{this.state.username !== ""? this.state.username:"........"}</mark> <mark>{this.state.usersurname !== ""? this.state.usersurname:"........"} </mark> </p>
+                <p id="user-Id"> (N <mark>{this.state.userid !== ""? this.state.userid:"........"}</mark> , Pers.-Nr.<mark>{this.state.userbid !== ""? this.state.userbid:"........"}</mark> ) </p>
+                   <p id="user-adress"> <mark>{this.state.userstreetname !== ""? this.state.userstreetname:"........"}</mark> <mark>{this.state.userhomenumber !== ""? this.state.userhomenumber:"........"}</mark>  , 
+                                    <mark>{this.state.userpostcode !== ""? this.state.userpostcode:"........"}</mark>  <mark>{this.state.userplace !== ""? this.state.userplace:"........"}</mark>
+                   </p>
+            </div>
+            <br></br> 
+            <br></br> 
+            
+            <div id="sem-adres">
+              <div>Einschreiben </div>
+              <div>Staatssekretariat für Migration</div>
+              <div>Quellenweg 6 </div>
+                    3003 Bern-Wabern
+              <div id="user-place"> <mark>{this.state.userplace !== ""? this.state.userplace:"........"}</mark> ,den <span id="today">{this.state.date}</span></div>
+             </div>    
 
-                
-
-               <br></br> 
-               <br></br> 
-               <br></br> 
-               <br></br> 
-               <br></br> 
-               <br></br> 
-               <div>
-                  <p>
-                    Gesuch um Familienasyl im Sinne des Art. 51 AsylG für die Ehefrau    
-                     <span> {this.state.userwifesname !== ""? this.state.userwifesname:"........"} {this.state.userwifessurname !== ""? this.state.userwifessurname:"........"} </span>   
-                    geboren am <span> {this.state.userwifesbirthday !== ""? this.state.userwifesbirthday:"........"} </span>, für die Tochter, <span> {this.state.userfirstchildname !== ""? this.state.userfirstchildname:"........"} </span>,
-                    geboren am {this.state.userfirstchildbirthday !== ""? this.state.userfirstchildbirthday:"........"}, für die
-                    alle türkische Staatsangehörige
-                    <span id="user-name"> {this.state.username !== ""? this.state.username:"........"} {this.state.usersurname !== ""? this.state.usersurname:"........"} </span>, geboren am
-                    <span id="user-birthday"> {this.state.userbirthday !== ""? this.state.userbirthday:"........"} </span>, anerkannter Flüchtling, 
-                    türkischer Staatsangehöriger
-                  </p>
-                
-
-                <p>Sehr geehrte Damen und Herren</p>
-
-                <p>
-                    Am <span id="user-comeDate"> {this.state.userdateofcametoswitzerland !== ""? this.state.userdateofcametoswitzerland:"........"} </span> habe ich in der Schweiz einen Asylantrag gestellt.
-                    Schliesslich wurde ich am <span id="user-asylDate"> {this.state.userdateofsubstitution !== ""? this.state.userdateofsubstitution:"........"} </span> als Flüchtling anerkannt.
-                    Danach wurde ich dem Kanton <span id="user-canton"> {this.state.usercanton !== ""? this.state.usercanton:"........"} </span> zugeteilt, wo ich zurzeit
-                    wohnhaft bin. Jedoch ist meine Familie noch in der <span id="user-country"> {this.state.usercountry !== ""? this.state.usercountry:"........"} </span> und
-                    sie ist in grosser Gefahr. Denn es wird nicht lange dauern bis die
-                    <span id="user-country"> {this.state.usercountry !== ""? this.state.usercountry:"........"} </span> Regierung meinen Aufenthalt in der Schweiz ausfindig
-                    macht. In diesem Fall würde man wahrscheinlich meiner Familie eine Ausreisesperre anordnen. Ähnliche
-                    Fälle sind sicherlich auch Ihnen bekannt.
-                </p>
-
-                <p><span id="user-country"> {this.state.usercountry !== ""? this.state.usercountry:"........"} </span> Adresse: {this.state.useradressincountry !== ""? this.state.useradressincountry:"........"}
+           <br></br>
+           <br></br> 
+           <br></br> 
+           <br></br> 
+           <br></br> 
+           <br></br> 
+           <div>
+              <p>
+                Gesuch um Familienasyl im Sinne des Art. 51 AsylG für die Ehefrau    
+                 <span> <mark>{this.state.userwifesname !== ""? this.state.userwifesname:"........"}</mark>  <mark>{this.state.userwifessurname !== ""? this.state.userwifessurname:"........"}</mark> </span>   
+                geboren am <span> <mark>{this.state.userwifesbirthday !== ""? this.state.userwifesbirthday:"........"}</mark> </span>, für die Tochter, <span> <mark>{this.state.userfirstchildname !== ""? this.state.userfirstchildname:"........"}</mark> </span>,
+                geboren am <mark>{this.state.userfirstchildbirthday !== ""? this.state.userfirstchildbirthday:"........"}</mark>, für die
+                alle türkische Staatsangehörige
+                <span id="user-name"> <mark>{this.state.username !== ""? this.state.username:"........"}</mark> <mark>{this.state.usersurname !== ""? this.state.usersurname:"........"}</mark> </span>, geboren am
+                <span id="user-birthday"> <mark>{this.state.userbirthday !== ""? this.state.userbirthday:"........"}</mark> </span>, anerkannter Flüchtling, 
+                türkischer Staatsangehöriger
               </p>
-                <p>
-                    Ich ersuche Sie deshalb, die Einreise meiner Familienangehörigen in die Schweiz im Sinne des Art. 51
-                    Asyl zu genehmigen. Folgende Unterlagen lege ich diesem Brief bei :
-                </p>
+            
 
-                <ul>
-                    <li>Auszug aus dem Personenstandsregister</li>
-                    <li>Aufenthaltsbescheinigung</li>
-                    <li>Kopie des Familienbuches</li>
-                    <li>Kopien der Identitätskarten</li>
-                    <li>Kopien der Reisepässe</li>
-                </ul>
-                </div>
+            <p>Sehr geehrte Damen und Herren</p>
+
+            <p>
+                Am <span id="user-comeDate"> <mark>{this.state.userdateofcametoswitzerland !== ""? this.state.userdateofcametoswitzerland:"........"}</mark> </span> habe ich in der Schweiz einen Asylantrag gestellt.
+                Schliesslich wurde ich am <span id="user-asylDate"> <mark>{this.state.userdateofsubstitution !== ""? this.state.userdateofsubstitution:"........"}</mark> </span> als Flüchtling anerkannt.
+                Danach wurde ich dem Kanton <span id="user-canton"> <mark>{this.state.usercanton !== ""? this.state.usercanton:"........"}</mark> </span> zugeteilt, wo ich zurzeit
+                wohnhaft bin. Jedoch ist meine Familie noch in der <span id="user-country"> <mark>{this.state.usercountry !== ""? this.state.usercountry:"........"}</mark> </span> und
+                sie ist in grosser Gefahr. Denn es wird nicht lange dauern bis die
+                <span id="user-country"> <mark>{this.state.usercountry !== ""? this.state.usercountry:"........"}</mark> </span> Regierung meinen Aufenthalt in der Schweiz ausfindig
+                macht. In diesem Fall würde man wahrscheinlich meiner Familie eine Ausreisesperre anordnen. Ähnliche
+                Fälle sind sicherlich auch Ihnen bekannt.
+            </p>
+
+            <p><span id="user-country"> <mark>{this.state.usercountry !== ""? this.state.usercountry:"........"}</mark> </span> Adresse: <mark>{this.state.useradressincountry !== ""? this.state.useradressincountry:"........"}</mark>
+          </p>
+            <p>
+                Ich ersuche Sie deshalb, die Einreise meiner Familienangehörigen in die Schweiz im Sinne des Art. 51
+                Asyl zu genehmigen. Folgende Unterlagen lege ich diesem Brief bei :
+            </p>
+
+            <ul>
+                <li>Auszug aus dem Personenstandsregister</li>
+                <li>Aufenthaltsbescheinigung</li>
+                <li>Kopie des Familienbuches</li>
+                <li>Kopien der Identitätskarten</li>
+                <li>Kopien der Reisepässe</li>
+            </ul>
             </div>
-        <div>
-                <p><input type="button" value="PRINT" id="print" onClick={this.sendToPrint} /></p>
-                <p><input type="button" value="Download PDF" onClick={this.generatePDF} /></p>
-            </div>
+        </div>
         </Col>
+               <div>
+                 <p><input type="button" value="PRINT" id="print" onClick={this.sendToPrint} /></p>
+                <p><input type="button" value="Download PDF" onClick={this.generatePDF} /></p>
+             </div>
+
+            <img id="image" alt=""/>
         
-        </Row> 
+        
+       </Row>
       </Jumbotron>   
     );
   }

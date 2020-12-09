@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Jumbotron, Form, Row, Col} from 'react-bootstrap';
+import { Jumbotron, Form, Row, Col, Button} from 'react-bootstrap';
 import jsPDF from 'jspdf';
 import $ from 'jquery';
 
@@ -12,7 +12,7 @@ export class Family extends Component
   constructor(props) {
       super(props);
       var today = new Date(),
-            date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+            date = (today.getMonth() + 1) + '-' + today.getDate()  + '-' + today.getFullYear() ;
       this.myChangeHandler = this.myChangeHandler.bind(this);
       this.state = {
         date: date,
@@ -37,12 +37,9 @@ export class Family extends Component
         userfirstchildbirthday: Date,
         usersecondchildsname: '',
         usersecondchildbirthday: Date,
-
+        count:0,
       };
   }
-
-  
-  
 
   sendToPrint(){
       var divContents = document.getElementById("family-pdf").innerHTML; 
@@ -67,12 +64,9 @@ doc.fromHTML(elementHTML, 15, 15, {
     'width': 170,
     'elementHandlers': specialElementHandlers
 });
-
 // Save the PDF
 doc.save('My-Document.pdf');
-      
-      
-  }
+}
 
   myChangeHandler(event) {
    let nam = event.target.name;
@@ -177,22 +171,9 @@ doc.save('My-Document.pdf');
             <Form.Label>Your Wife's Birthday</Form.Label>
             <Form.Control type="date" name="userwifesbirthday" onChange={this.myChangeHandler} />
           </Form.Group>
-
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Number Of Your Child</Form.Label>
-            <Form.Control type="number" placeholder="please enter your child number" name="usernumberofchild" onChange={this.myChangeHandler} />
-          </Form.Group>
-          
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Your First Child's Name</Form.Label>
-            <Form.Control type="text" placeholder="please enter your first child's name" name="userfirstchildname" onChange={this.myChangeHandler} />
-          </Form.Group>
-
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Your First Child's Birthday</Form.Label>
-            <Form.Control type="date" name="userfirstchildbirthday" onChange={this.myChangeHandler}/>
-          </Form.Group>
-
+          <Button value ="Add Your Kinder"onClick={() => this.setState({ count: this.state.userfirstchildname + 1 })}>
+          Add Your Kinder
+        </Button>
         </Form>
         </Col>
         <Col>

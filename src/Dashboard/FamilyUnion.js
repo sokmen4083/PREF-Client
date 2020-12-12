@@ -14,6 +14,7 @@ export class Family extends Component
       var today = new Date(),
             date = (today.getMonth() + 1) + '-' + today.getDate()  + '-' + today.getFullYear() ;
       this.myChangeHandler = this.myChangeHandler.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
       this.state = {
         date: date,
         username: '',
@@ -37,9 +38,65 @@ export class Family extends Component
         userfirstchildbirthday: Date,
         usersecondchildsname: '',
         usersecondchildbirthday: Date,
-        count:0,
+        values: [],
       };
   }
+  createUI(){
+    return this.state.values.map((el, i) => 
+        <div key={i}>
+          <Form.Group controlId="formBasicEmail">
+          <Form.Label>Your Child Name</Form.Label>
+         <Form.Control type="text" value={el||''} placeholder="your child name " name="userfirstchildname" onChange={this.myChangeHandler.bind(this, i)} />
+         </Form.Group>
+         <Form.Group controlId="formBasicEmail">
+          <Form.Label>Your Child Birthday</Form.Label>
+         <Form.Control type="date" value={el||''} name="userfirstchildbirthday" onChange={this.myChangeHandler.bind(this, i)} />
+         </Form.Group>
+        </div>         
+    )
+ }
+
+ handleChange(i, event) {
+   if(arguments.length === 2){
+    let values = [...this.state.values];
+    values[i] = event.target.value;
+    this.setState({ values });
+   }else if(arguments === 1){
+    let nam = event.target.name;
+    let val = event.target.value;
+    this.setState({[nam]: val})
+   } 
+ }
+
+ myChangeHandler(i, event) {
+  console.log(i,event);
+  if(event){
+    let values = [...this.state.values];
+    values[i] = event.target.value;
+    this.setState({ values });
+    console.log("values" , values)
+   }else{
+    let nam = i.target.name;
+    let val = i.target.value;
+    console.log(nam ,val);
+    this.setState({[nam]: val})
+   } 
+ }
+ 
+ addClick(){
+   this.setState(prevState => ({ values: [...prevState.values, '']}))
+ }
+ 
+ removeClick(i){
+    let values = [...this.state.values];
+    values.splice(i,1);
+    this.setState({ values });
+ }
+
+ handleSubmit(event) {
+   alert('A name was submitted: ' + this.state.values.join(', '));
+   event.preventDefault();
+ }
 
   sendToPrint(){
       var divContents = document.getElementById("family-pdf").innerHTML; 
@@ -68,11 +125,6 @@ doc.fromHTML(elementHTML, 15, 15, {
 doc.save('My-Document.pdf');
 }
 
-  myChangeHandler(event) {
-   let nam = event.target.name;
-   let val = event.target.value;
-   this.setState({[nam]: val})
-  }
 
   render() {
     return (
@@ -171,10 +223,14 @@ doc.save('My-Document.pdf');
             <Form.Label>Your Wife's Birthday</Form.Label>
             <Form.Control type="date" name="userwifesbirthday" onChange={this.myChangeHandler} />
           </Form.Group>
-          <Button value ="Add Your Kinder"onClick={() => this.setState({ count: this.state.userfirstchildname + 1 })}>
-          Add Your Kinder
-        </Button>
         </Form>
+        
+      <form onSubmit={this.handleSubmit}>
+          {this.createUI()}        
+          <Button value='Add Your Kinder' onClick={this.addClick.bind(this)}>
+          Add Your Kinder
+          </Button>
+      </form>
         </Col>
         <Col>
        
@@ -208,7 +264,7 @@ doc.save('My-Document.pdf');
               <p>
                 Gesuch um Familienasyl im Sinne des Art. 51 AsylG für die Ehefrau    
                  <span> <mark>{this.state.userwifesname !== ""? this.state.userwifesname:"........"}</mark>  <mark>{this.state.userwifessurname !== ""? this.state.userwifessurname:"........"}</mark> </span>   
-                geboren am <span> <mark>{this.state.userwifesbirthday !== ""? this.state.userwifesbirthday:"........"}</mark> </span>, für die Tochter, <span> <mark>{this.state.userfirstchildname !== ""? this.state.userfirstchildname:"........"}</mark> </span>,
+                geboren am <span> <mark>{this.state.userwifesbirthday !== ""? this.state.userwifesbirthday:"........"}</mark> </span>, für die Tochter, <span> <mark>{this.state.values.length > 0 ? this.state.values[0]:"........"}</mark> </span>,
                 geboren am <mark>{this.state.userfirstchildbirthday !== ""? this.state.userfirstchildbirthday:"........"}</mark>, für die
                 alle türkische Staatsangehörige
                 <span id="user-name"> <mark>{this.state.username !== ""? this.state.username:"........"}</mark> <mark>{this.state.usersurname !== ""? this.state.usersurname:"........"}</mark> </span>, geboren am

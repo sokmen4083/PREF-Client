@@ -61,6 +61,7 @@ export class Family extends Component
  createUIListName(){
   return this.state.values.map((el, i) => 
       <div key={i}>
+        für die Kinder,
        <li  value={el||''} onChange={this.handleNameChange.bind(this, i)}> <mark> {this.state.values[i]} </mark> 
        <span value={el||''} onChange={this.handleBirthdayChange.bind(this, i)}> geboren am <mark> {this.state.valuesbirthday[i]}</mark></span>
        </li>
@@ -270,8 +271,7 @@ doc.save('My-Document.pdf');
               <p>
                 Gesuch um Familienasyl im Sinne des Art. 51 AsylG für die Ehefrau    
                  <span> <mark>{this.state.userwifesname !== ""? this.state.userwifesname:"........"}</mark>  <mark>{this.state.userwifessurname !== ""? this.state.userwifessurname:"........"}</mark> </span>   
-                geboren am <span> <mark>{this.state.userwifesbirthday !== ""? this.state.userwifesbirthday:"........"}</mark> </span>, 
-                für die Kinder,
+                geboren am <span> <mark>{this.state.userwifesbirthday !== ""? this.state.userwifesbirthday:"........"}</mark> </span> 
                  <ul onSubmit={this.handleSubmit}>
                      {this.createUIListName()} 
                  </ul>

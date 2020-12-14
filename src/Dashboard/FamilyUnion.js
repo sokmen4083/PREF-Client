@@ -110,11 +110,7 @@ handleBirthdayChange(i, event) {
   sendToPrint(){
       var divContents = document.getElementById("family-pdf").innerHTML; 
       var a = window.open('', '', 'height=500, width=500'); 
-      a.document.write('<html>'); 
-      a.document.write('<body > <h1> <br>'); 
       a.document.write(divContents); 
-      a.document.write('</body></html>'); 
-      a.document.close(); 
       a.print(); 
   }
 

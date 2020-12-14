@@ -34,10 +34,6 @@ export class CantonChange extends Component
         userwifesname: '',
         userwifessurname:'',
         userwifesbirthday: Date,
-        userfirstchildname: '',
-        userfirstchildbirthday: Date,
-        usersecondchildsname: '',
-        usersecondchildbirthday: Date,
         values: [],
       };
   }
@@ -264,8 +260,13 @@ doc.save('My-Document.pdf');
               <p>
                 Gesuch um Familienasyl im Sinne des Art. 51 AsylG für die Ehefrau    
                  <span> <mark>{this.state.userwifesname !== ""? this.state.userwifesname:"........"}</mark>  <mark>{this.state.userwifessurname !== ""? this.state.userwifessurname:"........"}</mark> </span>   
-                geboren am <span> <mark>{this.state.userwifesbirthday !== ""? this.state.userwifesbirthday:"........"}</mark> </span>, für die Tochter, <span> <mark>{this.state.values.length > 0 ? this.state.values[0]:"........"}</mark> </span>,
-                geboren am <mark>{this.state.userfirstchildbirthday !== ""? this.state.userfirstchildbirthday:"........"}</mark>, für die
+                geboren am <span> <mark>{this.state.userwifesbirthday !== ""? this.state.userwifesbirthday:"........"}</mark> </span>, 
+                für die Kinder,
+                 <ul>
+                   <li> <mark> {this.state.values.length > 0 ? this.state.values[0]:"........"} </mark> geboren am <mark> {this.state.values.length > 0  ? this.state.values[1]:"........"}</mark></li>
+                   <li> <mark> {this.state.values.length > 0 ? this.state.values[0]:"........"} </mark> geboren am <mark> {this.state.values.length > 0  ? this.state.values[1]:"........"}</mark></li>
+                 </ul>,
+                , für die
                 alle türkische Staatsangehörige
                 <span id="user-name"> <mark>{this.state.username !== ""? this.state.username:"........"}</mark> <mark>{this.state.usersurname !== ""? this.state.usersurname:"........"}</mark> </span>, geboren am
                 <span id="user-birthday"> <mark>{this.state.userbirthday !== ""? this.state.userbirthday:"........"}</mark> </span>, anerkannter Flüchtling, 

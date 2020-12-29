@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Jumbotron, Form, Row, Col, Button} from 'react-bootstrap';
 import jsPDF from 'jspdf';
+import $ from 'jquery';
 
 
 

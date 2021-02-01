@@ -50,3 +50,7 @@ mark{
 div #sem-adres{
   float: right;
 }
+.container{
+min-width : 568px;
+max-withh : 798px;
+}

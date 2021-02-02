@@ -16,7 +16,7 @@ function App() {
 
   return (
     <Router>
-        <Container fluid>
+        <Container>
           <Row>
             <Col>
               <Navbar bg="light" expand="lg">
@@ -43,6 +43,9 @@ function App() {
             </Col>
           </Row>
         </Container>
+        <div>
+      <p class="copyright">©️ Copyright 2021- Created by Mehmet Sökmen</p>
+        </div>
     </Router>
   );
 }

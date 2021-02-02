@@ -50,21 +50,10 @@ mark{
 div #sem-adres{
   float: right;
 }
-<<<<<<< HEAD
-=======
-.container{
-min-width : 568px;
-max-withh : 798px;
-}
->>>>>>> e9fe6f76141b41dc3922a4749613b62c6e32e5fd
 .copyright{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   font-size: 15px;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> e9fe6f76141b41dc3922a4749613b62c6e32e5fd

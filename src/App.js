@@ -43,6 +43,9 @@ function App() {
             </Col>
           </Row>
         </Container>
+    <div>
+      <p class="copyright">©️ Copyright 2021- Created by Mehmet Sökmen</p>
+    </div>
     </Router>
   );
 }

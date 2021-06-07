@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { Jumbotron, Form, Row, Col, Button} from 'react-bootstrap';
 import jsPDF from 'jspdf';
 import $ from 'jquery';
+import { withTranslation } from 'react-i18next'
 
 
 
-
-export class Family extends Component 
+ class Family extends Component 
 {
 
   constructor(props) {
@@ -128,37 +128,35 @@ doc.fromHTML(elementHTML, 15, 15, {
 doc.save('My-Document.pdf');
 }
 
-
   render() {
+    const { t } = this.props;
     return (
       <Jumbotron>
         <Row>
           <Col>
-        <h1>Family Union</h1>
+        <h1>{t('familyUnion')}</h1>
         <p>
-         The document needed for a person who has been living in Switzerland 
-         and whose family is outside Europe to bring her family to Switzerland
-         can be accessed from this section.
+        {t('familyText')}
         </p>
         
         <Form>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Please fill in the form below</Form.Label>
+            <Form.Label>{t('fillForm')}</Form.Label>
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Your Name</Form.Label>
-            <Form.Control type="text" placeholder="please enter your name" name="username"  onChange={this.myChangeHandler}/>
+            <Form.Label>{t('yourFirstName')}</Form.Label>
+            <Form.Control type="text" placeholder={t('pleaseName')} name="username"  onChange={this.myChangeHandler}/>
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Your Surname</Form.Label>
-            <Form.Control type="text" placeholder="please enter your surname" name="usersurname"  onChange={this.myChangeHandler}/>
+            <Form.Label>{t('yourLastName')}</Form.Label>
+            <Form.Control type="text" placeholder={t('pleaseLastName')} name="usersurname"  onChange={this.myChangeHandler}/>
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Your N-Id Number</Form.Label>
-            <Form.Control type="number" placeholder="please enter your Id-Number" name="userid"  onChange={this.myChangeHandler}/>
+            <Form.Label>{t('numberOfN')}</Form.Label>
+            <Form.Control type="number" placeholder={t('pleaseNNumber')} name="userid"  onChange={this.myChangeHandler}/>
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
@@ -320,3 +318,4 @@ doc.save('My-Document.pdf');
     );
   }
 }
+export default withTranslation()(Family);

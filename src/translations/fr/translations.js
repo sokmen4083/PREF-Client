@@ -23,4 +23,7 @@ export const TRANSLATIONS_FR = {
     pleaseLastName: 'veuillez entrer votre nom de famille',
     numberOfN: 'Votre numéro d"identification "N"',
     pleaseNNumber: 'veuillez entrer votre numéro d"identification "N"',
+    numberOfB: 'Votre numéro d"identification "B"',
+    pleaseBNumber: 'veuillez entrer votre numéro d"identification "B"',
+    birthday: 'Ton anniversaire',
   }

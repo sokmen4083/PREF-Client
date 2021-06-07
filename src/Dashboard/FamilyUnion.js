@@ -160,12 +160,12 @@ doc.save('My-Document.pdf');
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Your B-Id Number</Form.Label>
-            <Form.Control type="number" placeholder="please enter your Id-Number" name="userbid"  onChange={this.myChangeHandler}/>
+            <Form.Label>{t('numberOfB')}</Form.Label>
+            <Form.Control type="number" placeholder={t('pleaseBNumber')} name="userbid"  onChange={this.myChangeHandler}/>
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Your Birthday</Form.Label>
+            <Form.Label>{t('birthday')}</Form.Label>
             <Form.Control type="date" name="userbirthday" onChange={this.myChangeHandler} />
           </Form.Group>
 

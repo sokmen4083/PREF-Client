@@ -12,7 +12,7 @@ import { withTranslation } from 'react-i18next'
   constructor(props) {
       super(props);
       var today = new Date(),
-            date = (today.getMonth() + 1) + '-' + today.getDate()  + '-' + today.getFullYear() ;
+            date = (today.getDate() + '/' + (today.getMonth() + 1) +  '/' + today.getFullYear()) ;
       this.myChangeHandler = this.myChangeHandler.bind(this);
       this.state = {
         date: date,

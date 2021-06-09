@@ -1,4 +1,5 @@
 {
+  "homepage": "https://sokmen4083.github.io/PREF-Client/",
   "name": "pref-client",
   "version": "0.1.0",
   "private": true,
@@ -33,6 +34,7 @@
     "react-to-print": "^2.12.0"
   },
   "scripts": {
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

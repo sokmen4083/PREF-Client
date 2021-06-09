@@ -42,14 +42,15 @@ import { withTranslation } from 'react-i18next'
       };
   }
   createUI(){
+    const { t } = this.props;
     return this.state.values.map((el, i) => 
         <div key={i}>
           <Form.Group controlId="formBasicEmail">
-          <Form.Label>Your {i+1}. Child Name</Form.Label>
-         <Form.Control type="text" value={el||''} placeholder="your child name " name="userfirstchildname" onChange={this.handleNameChange.bind(this, i)} />
+          <Form.Label>{t('your')} {i+1}. {t('childName')}</Form.Label>
+         <Form.Control type="text" value={el||''} placeholder={t('child')} name="userfirstchildname" onChange={this.handleNameChange.bind(this, i)} />
          </Form.Group>
          <Form.Group controlId="formBasicEmail">
-          <Form.Label>Your {i+1}. Child Birthday</Form.Label>
+          <Form.Label>{t('your')} {i+1}. {t('childBirthday')}</Form.Label>
          <Form.Control type="date" value={el||''}  onChange={this.handleBirthdayChange.bind(this, i)} />
          </Form.Group>
         </div>
@@ -169,66 +170,66 @@ doc.save('My-Document.pdf');
             <Form.Control type="date" name="userbirthday" onChange={this.myChangeHandler} />
           </Form.Group>
 
-          <Form.Label>Your Adress in Switzerland</Form.Label>
+          <Form.Label>{t('adress')} {t('adressInSw')}</Form.Label>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>
-                <Form.Control type="text" placeholder="Street Name" name="userstreetname"  onChange={this.myChangeHandler}/>
+                <Form.Control type="text" placeholder={t('street')} name="userstreetname"  onChange={this.myChangeHandler}/>
               </Form.Label>
               <Form.Label>
-                <Form.Control type="number" placeholder="Home number" name="userhomenumber"  onChange={this.myChangeHandler}/>
+                <Form.Control type="number" placeholder={t('home')} name="userhomenumber"  onChange={this.myChangeHandler}/>
               </Form.Label>
               <Form.Label>
-                <Form.Control type="number" placeholder="Post Code" name="userpostcode"  onChange={this.myChangeHandler}/>
+                <Form.Control type="number" placeholder={t('postCode')} name="userpostcode"  onChange={this.myChangeHandler}/>
               </Form.Label>
               <Form.Label>
-                <Form.Control type="text" placeholder="please enter your place" name="userplace"  onChange={this.myChangeHandler}/>
+                <Form.Control type="text" placeholder={t('place')} name="userplace"  onChange={this.myChangeHandler}/>
               </Form.Label>
             </Form.Group>
 
             <Form.Group controlId="formBasicEmail">
-            <Form.Label>Your Kanton</Form.Label>
+            <Form.Label>{t('kantonName')}</Form.Label>
             <Form.Control type="text" name="usercanton"  onChange={this.myChangeHandler}/>
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>The Date You Came To Switzerland</Form.Label>
+            <Form.Label>{t('came')}</Form.Label>
             <Form.Control type="date" name="userdateofcametoswitzerland"  onChange={this.myChangeHandler}/>
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Date Of Substitution</Form.Label>
+            <Form.Label>{t('substitution')}</Form.Label>
             <Form.Control type="date" placeholder="please enter your wife's name" name="userdateofsubstitution"  onChange={this.myChangeHandler}/>
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Your Country</Form.Label>
+            <Form.Label>{t('country')}</Form.Label>
             <Form.Control type="text" name="usercountry"  onChange={this.myChangeHandler}/>
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Your Adress In Your Country</Form.Label>
-            <Form.Control type="text" placeholder="please enter your adress in your country" name="useradressincountry" onChange={this.myChangeHandler}/>
+            <Form.Label>{t('adress')} in {t('country')}</Form.Label>
+            <Form.Control type="text" placeholder={t('adress')} name="useradressincountry" onChange={this.myChangeHandler}/>
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Your Wife's Name</Form.Label>
-            <Form.Control type="text" placeholder="please enter your wife's name" name="userwifesname"  onChange={this.myChangeHandler}/>
+            <Form.Label>{t('wifeName')}</Form.Label>
+            <Form.Control type="text" placeholder={t('wifeName')} name="userwifesname"  onChange={this.myChangeHandler}/>
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Your Wife's Surname</Form.Label>
-            <Form.Control type="text" placeholder="please enter your wife's surname" name="userwifessurname"  onChange={this.myChangeHandler}/>
+            <Form.Label>{t('wifeSurname')}</Form.Label>
+            <Form.Control type="text" placeholder={t('wifeSurname')} name="userwifessurname"  onChange={this.myChangeHandler}/>
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Your Wife's Birthday</Form.Label>
+            <Form.Label>{t('wifeBirthday')}</Form.Label>
             <Form.Control type="date" name="userwifesbirthday" onChange={this.myChangeHandler} />
           </Form.Group>
         </Form>
         
       <form>
           {this.createUI()}
-      <Button onClick={this.addClick.bind(this)}> Add Your Kinder </Button>
+      <Button onClick={this.addClick.bind(this)}> {t('addkinder')} </Button>
       </form>
         </Col>
         <Col>
@@ -306,8 +307,8 @@ doc.save('My-Document.pdf');
         </div>
         </Col>
                <div>
-                 <p><input type="button" value="PRINT" id="print" onClick={this.sendToPrint} /></p>
-                <p><input type="button" value="Download PDF" onClick={this.generatePDF} /></p>
+                 <p><input type="button" value={t('print')} id="print" onClick={this.sendToPrint} /></p>
+                <p><input type="button" value={t('download')} onClick={this.generatePDF} /></p>
              </div>
 
             <img id="image" alt=""/>

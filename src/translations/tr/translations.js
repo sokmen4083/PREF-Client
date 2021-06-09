@@ -17,7 +17,7 @@ export const TRANSLATIONS_TR = {
     campText: 'İsviçre"deki kampta bulunan bir kişinin "kamp değişikliği" başvurusunda bulunması gereken belgeye buradan ulaşabilirsiniz.',
     goCamp: 'Kamp Değişikliği Evragina Gidiniz',
     fillForm: 'Lütfen aşağıdaki formu doldurun.',
-    yourFirstName: 'Isminiz',
+    yourFirstName: 'İsminiz',
     pleaseName: 'Lütfen isminizi giriniz',
     yourLastName: 'Soyisminiz',
     pleaseLastName: 'Lütfen soyisminizi giriniz',

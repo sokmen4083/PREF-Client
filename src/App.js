@@ -63,6 +63,11 @@ function App() {
                 <Nav.Link><Link className='image' onClick={() => changeLanguage('tr')}>TR</Link></Nav.Link>
                 </Nav>
                 </Navbar.Brand>
+                <Navbar.Brand >
+                  <Nav>
+                <Nav.Link><Link className='image' onClick={() => changeLanguage('ar')}>AR</Link></Nav.Link>
+                </Nav>
+                </Navbar.Brand>
             </Navbar>
             </Col>
           </Row>

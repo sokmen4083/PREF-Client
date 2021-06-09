@@ -7,6 +7,7 @@ import { TRANSLATIONS_EN } from './en/translations'
 import { TRANSLATIONS_FR } from './fr/translations'
 import { TRANSLATIONS_IT } from './it/translations'
 import { TRANSLATIONS_TR } from './tr/translations'
+import { TRANSLATIONS_AR } from './ar/translations'
 
 i18n
   .use(LanguageDetector)
@@ -27,6 +28,9 @@ i18n
       },
       tr: {
         translation: TRANSLATIONS_TR,
+      },
+      ar: {
+        translation: TRANSLATIONS_AR,
       },
     },
   })

@@ -28,6 +28,7 @@
     "react-native-localization": "^2.1.6",
     "react-native-tts": "^3.2.0",
     "react-pdfmake": "^0.2.0",
+    "react-responsive": "^8.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-select": "^3.1.0",

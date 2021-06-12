@@ -8,6 +8,7 @@ import { TRANSLATIONS_FR } from './fr/translations'
 import { TRANSLATIONS_IT } from './it/translations'
 import { TRANSLATIONS_TR } from './tr/translations'
 import { TRANSLATIONS_AR } from './ar/translations'
+import { TRANSLATIONS_KR } from './kr/translations'
 
 i18n
   .use(LanguageDetector)
@@ -33,6 +34,10 @@ i18n
         translation: TRANSLATIONS_AR,
       },
     },
-  })
+    kr: {
+      translation: TRANSLATIONS_KR,
+    },
+  },
+  )
 
 i18n.changeLanguage('en')

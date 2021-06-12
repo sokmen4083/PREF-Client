@@ -25,7 +25,7 @@ function App() {
   }
   return (
     <Router>
-        <Container fluid>
+        <Container>
           <Row>
             <Col>
               <Navbar bg="light" expand="lg">
@@ -66,6 +66,11 @@ function App() {
                 <Navbar.Brand >
                   <Nav>
                 <Nav.Link><Link className='image' onClick={() => changeLanguage('ar')}>AR</Link></Nav.Link>
+                </Nav>
+                </Navbar.Brand>
+                <Navbar.Brand >
+                  <Nav>
+                <Nav.Link><Link className='image' onClick={() => changeLanguage('kr')}>KR</Link></Nav.Link>
                 </Nav>
                 </Navbar.Brand>
             </Navbar>
